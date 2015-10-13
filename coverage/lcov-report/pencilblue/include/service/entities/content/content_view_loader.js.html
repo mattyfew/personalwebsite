@@ -1,0 +1,1752 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/service/entities/content/content_view_loader.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/service/entities/content/content_view_loader.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">14.29% <small>(31 / 217)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 100)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">2.17% <small>(1 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">14.29% <small>(31 / 217)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/service/entities/content/</a> &#187; content_view_loader.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516
+517
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537
+538
+539
+540
+541
+542
+543
+544
+545
+546
+547
+548
+549
+550
+551
+552
+553
+554
+555
+556
+557
+558
+559
+560
+561
+562
+563
+564
+565
+566</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+	Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+&nbsp;
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+&nbsp;
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var util        = require('../../../util.js');
+var async       = require('async');
+var HtmlEncoder = require('htmlencode');
+&nbsp;
+module.exports = function(pb) {
+    
+    //pb dependencies
+    var DAO          = pb.DAO;
+    var Localization = pb.Localization;
+    var ClientJs     = pb.ClientJs;
+    
+    /**
+     * Renders a 1 or more pieces of content such as articles or pages
+     * @class ContentViewLoader
+     * @constructor
+     * @param {Object} context
+     * @param {TemplateService} context.ts
+     * @param {Localization} context.ls
+     * @param {Object} [context.contentSettings]
+     * @param {Object} context.session
+     * @param {ContentObjectService} context.service
+     * @param {String} context.activeTheme
+     */
+<span class="fstat-no" title="function not covered" >    function ContentViewLoader(context) {</span>
+        
+<span class="cstat-no" title="statement not covered" >        this.ts = context.ts;</span>
+<span class="cstat-no" title="statement not covered" >        this.ls = context.ls;</span>
+<span class="cstat-no" title="statement not covered" >        this.req = context.req;</span>
+<span class="cstat-no" title="statement not covered" >        this.contentSettings = context.contentSettings; </span>
+<span class="cstat-no" title="statement not covered" >        this.session = context.session;</span>
+<span class="cstat-no" title="statement not covered" >        this.service = context.service;</span>
+<span class="cstat-no" title="statement not covered" >        this.activeTheme = context.activeTheme;</span>
+    };
+    
+    /**
+     *
+     * @private
+     * @static
+     * @property DISPLAY_NONE_STYLE_ATTR
+     * @type {String}
+     */
+    var DISPLAY_NONE_STYLE_ATTR = 'display:none;';
+    
+    /**
+     *
+     * @method getMetaInfo
+     * @param {Object} content
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.renderSingle = <span class="fstat-no" title="function not covered" >function(content, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        this.render([content], options, cb);</span>
+    };
+    
+    /**
+     *
+     * @method render
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Boolean} [options.useDefaultTemplate] Forces the default theme template to be selected
+     * @param {Object} [options.topic] The topic represented by the collection of content to be rendered
+     * @param {Object} [options.section] The section represented by the collection of content to be rendered
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.render = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+        
+<span class="cstat-no" title="statement not covered" >        this.gatherData(contentArray, options, <span class="fstat-no" title="function not covered" >function(err, data) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err);</span>
+            }
+            
+<span class="cstat-no" title="statement not covered" >            self.setMetaInfo(data.meta, options);</span>
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('current_url', self.req.url);</span>
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('navigation', new pb.TemplateValue(data.nav.navigation, false));</span>
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('account_buttons', new pb.TemplateValue(data.nav.accountButtons, false));</span>
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('infinite_scroll', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.onInfiniteScroll(contentArray, options, cb);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('page_name', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.onPageName(contentArray, options, cb);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('angular', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.onAngular(contentArray, options, cb);</span>
+            });
+<span class="cstat-no" title="statement not covered" >            self.ts.registerLocal('articles', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.onContent(contentArray, options, cb);</span>
+            });
+            
+<span class="cstat-no" title="statement not covered" >            self.getTemplate(contentArray, options, <span class="fstat-no" title="function not covered" >function(err, template) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return cb(err);</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                self.ts.load(template, cb);</span>
+            });
+        });
+    };
+    
+    /**
+     *
+     * @method getTemplate
+     * @param {Array|Object} content
+     * @param {Object} options
+     * @param {Boolean} [options.useDefaultTemplate] Forces the default theme template to be selected
+     * @param {Object} [options.topic] The topic represented by the collection of content to be rendered
+     * @param {Object} [options.section] The section represented by the collection of content to be rendered
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.getTemplate = <span class="fstat-no" title="function not covered" >function(content, options, cb) {</span>
+&nbsp;
+        //check if we should just use whatever default there is.
+        //this could fall back to an active theme or the default pencilblue theme.
+<span class="cstat-no" title="statement not covered" >        if (options.useDefaultTemplate || util.isObject(options.topic) || util.isObject(options.section)) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, this.getDefaultTemplatePath());</span>
+        }
+&nbsp;
+        //now we are dealing with a single page or article. the template will be
+        //judged based off the article's preference.
+<span class="cstat-no" title="statement not covered" >        if (util.isArray(content) &amp;&amp; content.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            content = content[0];</span>
+        }
+<span class="cstat-no" title="statement not covered" >        var uidAndTemplate = content.template;</span>
+&nbsp;
+        //when no template is specified or is empty we no that the article has no
+        //preference and we can fall back on the default (index).  We depend on the
+        //template service to determine who has priority based on the active theme
+        //then defaulting back to pencilblue.
+<span class="cstat-no" title="statement not covered" >        if (!pb.validation.validateNonEmptyStr(uidAndTemplate, true)) {</span>
+<span class="cstat-no" title="statement not covered" >            var defautTemplatePath = this.getDefaultTemplatePath();</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.silly("ContentController: No template specified, defaulting to %s.", defautTemplatePath);</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, defautTemplatePath);</span>
+        }
+&nbsp;
+        //we now know that the template was specified.  We have to split the value
+        //to extract the intended theme and the template path
+<span class="cstat-no" title="statement not covered" >        var pieces = uidAndTemplate.split('|');</span>
+&nbsp;
+        //for backward compatibility we let the template service determine where to
+        //find the template when no template is specified.  This mostly catches the
+        //default case of "index"
+<span class="cstat-no" title="statement not covered" >        if (pieces.length === 1) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            pb.log.silly("ContentController: No theme specified, Template Service will delegate [%s]", pieces[0]);</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, pieces[0]);</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (pieces.length &lt;= 0) {</span>
+&nbsp;
+            //shit's broke. This should never be the case but better safe than sorry
+<span class="cstat-no" title="statement not covered" >            return cb(new Error("The content's template property provided an invalid value of ["+content.template+']'), null);</span>
+        }
+&nbsp;
+        //the theme is specified, we ensure that the theme is installed and
+        //initialized otherwise we let the template service figure out how to
+        //delegate.
+<span class="cstat-no" title="statement not covered" >        if (!pb.PluginService.isActivePlugin(pieces[0])) {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.silly("ContentController: Theme [%s] is not active, Template Service will delegate [%s]", pieces[0], pieces[1]);</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, pieces[1]);</span>
+        }
+&nbsp;
+        //the theme is OK. We don't gaurantee that the template is on the disk but we can testify that it SHOULD.  We set the
+        //prioritized theme for the template service.
+<span class="cstat-no" title="statement not covered" >        pb.log.silly("ContentController: Prioritizing Theme [%s] for template [%s]", pieces[0], pieces[1]);</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.setTheme(pieces[0]);</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, pieces[1]);</span>
+    };
+&nbsp;
+    /**
+     *
+     * @method getDefaultTemplatePath
+     * @return {String}
+     */
+    ContentViewLoader.prototype.getDefaultTemplatePath = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return 'index';</span>
+    };
+    
+    /**
+     *
+     * @method onContent
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onContent = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self  = this;</span>
+<span class="cstat-no" title="statement not covered" >        var limit = Math.min(this.contentSettings.articles_per_page, contentArray.length);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var tasks = util.getTasks(contentArray, <span class="fstat-no" title="function not covered" >function(contentArray, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return <span class="fstat-no" title="function not covered" >function(callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (i &gt;= limit) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(null, '');</span>
+                }
+<span class="cstat-no" title="statement not covered" >                self.renderContent(contentArray[i], options, callback);</span>
+            };
+        });
+<span class="cstat-no" title="statement not covered" >        async.series(tasks, <span class="fstat-no" title="function not covered" >function(err, content) {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(err, new pb.TemplateValue(content.join(''), false));</span>
+        });
+    };
+    
+    /**
+     *
+     * @method gatherData
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.gatherData = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self  = this;</span>
+<span class="cstat-no" title="statement not covered" >        var tasks = {</span>
+&nbsp;
+            //navigation
+            nav: <span class="fstat-no" title="function not covered" >function(callback) {</span>
+                
+<span class="cstat-no" title="statement not covered" >                var opts = {</span>
+                    currUrl: self.req.url,
+                    session: self.session,
+                    ls: self.ls,
+                    activeTheme: self.activeTheme
+                };
+<span class="cstat-no" title="statement not covered" >                var topMenuService = new pb.TopMenuService();</span>
+<span class="cstat-no" title="statement not covered" >                topMenuService.getNavItems(opts, callback);</span>
+            },
+&nbsp;
+            meta: <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                self.getMetaInfo(contentArray, options, callback);</span>
+            },
+            
+            contentSettings: <span class="fstat-no" title="function not covered" >function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                if (util.isObject(self.contentSettings)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return callback(null, self.contentSettings);</span>
+                }
+                
+<span class="cstat-no" title="statement not covered" >                var contentService = new pb.ContentService();</span>
+<span class="cstat-no" title="statement not covered" >                contentService.getSettings(<span class="fstat-no" title="function not covered" >function(err, contentSettings) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    self.contentSettings = contentSettings;</span>
+<span class="cstat-no" title="statement not covered" >                    callback(err, contentSettings);</span>
+                });
+            }
+        };
+<span class="cstat-no" title="statement not covered" >        async.parallel(tasks, cb);</span>
+    };
+    
+    /**
+     * 
+     * @method onAngular
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onAngular = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var objects = {</span>
+            trustHTML: 'function(string){return $sce.trustAsHtml(string);}'
+        };
+<span class="cstat-no" title="statement not covered" >        var angularData = pb.ClientJs.getAngularController(objects, ['ngSanitize']);</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, angularData);</span>
+    };
+    
+    /**
+     *
+     * @method onPageName
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onPageName = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var content = contentArray[0];</span>
+<span class="cstat-no" title="statement not covered" >        if (!util.isObject(content)) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, options.metaTitle || pb.config.siteName);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var name = '';</span>
+<span class="cstat-no" title="statement not covered" >        if(util.isObject(options.section)) {</span>
+<span class="cstat-no" title="statement not covered" >            name = options.section.name;</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (util.isObject(options.topic)) {</span>
+<span class="cstat-no" title="statement not covered" >            name = options.topic.name;</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (contentArray.length === 1) {</span>
+<span class="cstat-no" title="statement not covered" >            name = content.headline;</span>
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            name = options.metaTitle || '';</span>
+        }
+        
+<span class="cstat-no" title="statement not covered" >        cb(null, name ? name + ' | ' + pb.config.siteName : pb.config.siteName);</span>
+    };
+    
+    /**
+     *
+     * @method onInfiniteScroll
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onInfiniteScroll = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if(contentArray.length &lt;= 1) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, '');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var infiniteScrollScript = pb.ClientJs.includeJS('/js/infinite_article_scroll.js');</span>
+<span class="cstat-no" title="statement not covered" >        if(util.isObject(options.section)) {</span>
+<span class="cstat-no" title="statement not covered" >            infiniteScrollScript += pb.ClientJs.getJSTag('var infiniteScrollSection = "' + options.section[pb.DAO.getIdField()] + '";');</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if(util.isObject(options.topic)) {</span>
+<span class="cstat-no" title="statement not covered" >            infiniteScrollScript += pb.ClientJs.getJSTag('var infiniteScrollTopic = "' + options.topic.topic[pb.DAO.getIdField()] + '";');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var val = new pb.TemplateValue(infiniteScrollScript, false);</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, val);</span>
+    };
+    
+    /**
+     * 
+     * @method setMetaInfo
+     * @param {Object} options
+     */
+    ContentViewLoader.prototype.setMetaInfo = <span class="fstat-no" title="function not covered" >function(meta, options) {</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.registerLocal('meta_keywords', meta.keywords);</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.registerLocal('meta_desc', options.metaDescription || meta.description);</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.registerLocal('meta_title', options.metaTitle || meta.title);</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.registerLocal('meta_thumbnail', meta.thumbnail || '');</span>
+<span class="cstat-no" title="statement not covered" >        this.ts.registerLocal('meta_lang', Localization.getDefaultLocale());</span>
+    };
+    
+    /**
+     *
+     * @method getMetaInfo
+     * @param {Array} contentArray
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.getMetaInfo = <span class="fstat-no" title="function not covered" >function(contentArray, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (contentArray.length === 0) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, {});</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.service.getMetaInfo(contentArray[0], cb);</span>
+    };
+    
+    /**
+     *
+     * @method renderContent
+     * @param {Object} content
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.renderContent = <span class="fstat-no" title="function not covered" >function(content, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+        
+        //set recurring params
+<span class="cstat-no" title="statement not covered" >        if (util.isNullOrUndefined(options.contentIndex)) {</span>
+<span class="cstat-no" title="statement not covered" >            options.contentIndex = 0;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var isPage           = this.service.getType() === 'page';</span>
+<span class="cstat-no" title="statement not covered" >        var showByLine       = this.contentSettings.display_bylines &amp;&amp; !isPage;</span>
+<span class="cstat-no" title="statement not covered" >        var showTimestamp    = this.contentSettings.display_timestamp &amp;&amp; !isPage;</span>
+<span class="cstat-no" title="statement not covered" >        var ats              = self.ts.getChildInstance();</span>
+<span class="cstat-no" title="statement not covered" >        var contentUrlPrefix = '/' + this.service.getType() + '/';</span>
+<span class="cstat-no" title="statement not covered" >        self.ts.reprocess = false;</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_permalink', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.onContentPermalink(content, options, cb);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_headline', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.onContentHeadline(content, options, cb);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_headline_nolink', content.headline);</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_subheading', ContentViewLoader.valOrEmpty(content.subheading));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_subheading_display', ContentViewLoader.getDisplayAttr(content.subheading));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_id', content[pb.DAO.getIdField()] + '');</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_index', options.contentIndex);</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_timestamp', showTimestamp &amp;&amp; content.timestamp ? content.timestamp : '');</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_timestamp_display', ContentViewLoader.getDisplayAttr(showTimestamp));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_layout', new pb.TemplateValue(content.layout, false));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('article_url', content.url);</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('display_byline', ContentViewLoader.getDisplayAttr(showByLine));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('author_photo', ContentViewLoader.valOrEmpty(content.author_photo));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('author_photo_display', ContentViewLoader.getDisplayAttr(content.author_photo));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('author_name', ContentViewLoader.valOrEmpty(content.author_name));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('author_position', ContentViewLoader.valOrEmpty(content.author_position));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('media_body_style', ContentViewLoader.valOrEmpty(content.media_body_style));</span>
+<span class="cstat-no" title="statement not covered" >        ats.registerLocal('comments', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (isPage || !pb.ArticleService.allowComments(self.contentSettings, content)) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(null, '');</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var ts = ats.getChildInstance();</span>
+<span class="cstat-no" title="statement not covered" >            self.renderComments(content, ts, <span class="fstat-no" title="function not covered" >function(err, comments) {</span></span>
+<span class="cstat-no" title="statement not covered" >                cb(err, new pb.TemplateValue(comments, false));</span>
+            });
+        });
+<span class="cstat-no" title="statement not covered" >        ats.load('elements/article', cb);</span>
+        
+<span class="cstat-no" title="statement not covered" >        options.contentIndex++;</span>
+    };
+    
+    /**
+     *
+     * @method renderComments
+     * @param {Object} content
+     * @param {TemplateService} ts
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.renderComments = <span class="fstat-no" title="function not covered" >function(content, ts, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self           = this;</span>
+<span class="cstat-no" title="statement not covered" >        var commentingUser = null;</span>
+<span class="cstat-no" title="statement not covered" >        if(pb.security.isAuthenticated(this.session)) {</span>
+<span class="cstat-no" title="statement not covered" >            commentingUser = pb.CommentService.getCommentingUser(this.session.authentication.user);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('user_photo', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.onCommentingUserPhoto(content, commentingUser, cb);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('user_position', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.onCommentingUserPosition(content, commentingUser, cb);</span>
+        });
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('user_name', commentingUser ? commentingUser.name : '');</span>
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('display_submit', commentingUser ? 'block' : 'none');</span>
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('display_login', commentingUser ? 'none' : 'block');</span>
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('comments_length', util.isArray(content.comments) ? content.comments.length : 0);</span>
+<span class="cstat-no" title="statement not covered" >        ts.registerLocal('individual_comments', <span class="fstat-no" title="function not covered" >function(flag, cb) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (!util.isArray(content.comments) || content.comments.length == 0) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(null, '');</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var tasks = util.getTasks(content.comments, <span class="fstat-no" title="function not covered" >function(comments, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >                return <span class="fstat-no" title="function not covered" >function(callback) {</span></span>
+                    
+<span class="cstat-no" title="statement not covered" >                    var cts = ts.getChildInstance();</span>
+<span class="cstat-no" title="statement not covered" >                    self.renderComment(comments[i], cts, callback);</span>
+                };
+            });
+<span class="cstat-no" title="statement not covered" >            async.parallel(tasks, <span class="fstat-no" title="function not covered" >function(err, results) {</span></span>
+<span class="cstat-no" title="statement not covered" >                cb(err, new pb.TemplateValue(results.join(''), false));</span>
+            });
+        });
+<span class="cstat-no" title="statement not covered" >        ts.load('elements/comments', cb);</span>
+    };
+    
+    /**
+     *
+     * @method renderComment
+     * @param {Object} comment
+     * @param {TemplateService} cts
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.renderComment = <span class="fstat-no" title="function not covered" >function(comment, cts, cb) {</span>
+        
+<span class="cstat-no" title="statement not covered" >        cts.reprocess = false;</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('commenter_photo', comment.commenter_photo ? comment.commenter_photo : '');</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('display_photo', comment.commenter_photo ? 'block' : 'none');</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('commenter_name', comment.commenter_name);</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('commenter_position', comment.commenter_position ? ', ' + comment.commenter_position : '');</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('content', comment.content);</span>
+<span class="cstat-no" title="statement not covered" >        cts.registerLocal('timestamp', comment.timestamp);</span>
+<span class="cstat-no" title="statement not covered" >        cts.load('elements/comments/comment', cb);</span>
+    };
+    
+    /**
+     *
+     * @method onCommentingUserPhoto
+     * @param {Object} content
+     * @param {Object} commentingUser
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onCommentingUserPhoto = <span class="fstat-no" title="function not covered" >function(content, commentingUser, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var val = '';</span>
+<span class="cstat-no" title="statement not covered" >        if (commentingUser) {</span>
+<span class="cstat-no" title="statement not covered" >            val = commentingUser.photo || '';</span>
+        }
+<span class="cstat-no" title="statement not covered" >        cb(null, val);</span>
+    };
+    
+    /**
+     * 
+     * @method onCommentingUserPosition
+     * @param {Object} content
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onCommentingUserPosition = <span class="fstat-no" title="function not covered" >function(content, commentingUser, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var val = '';</span>
+<span class="cstat-no" title="statement not covered" >        if (commentingUser &amp;&amp; util.isArray(commentingUser.position) &amp;&amp; commentingUser.position.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            val = ', ' + commentingUser.position;</span>
+        }
+<span class="cstat-no" title="statement not covered" >        cb(null, val);</span>
+    };
+    
+    /**
+     *
+     * @method onContentPermalink
+     * @param {Object} content
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onContentPermalink = <span class="fstat-no" title="function not covered" >function(content, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, this.createContentPermalink(content));</span>
+    };
+    
+    /**
+     *
+     * @method onContentHeadline
+     * @param {Object} content
+     * @param {Object} options
+     * @param {Function} cb
+     */
+    ContentViewLoader.prototype.onContentHeadline = <span class="fstat-no" title="function not covered" >function(content, options, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var url = this.createContentPermalink(content);</span>
+<span class="cstat-no" title="statement not covered" >        var val = new pb.TemplateValue('&lt;a href="' + url + '"&gt;' + HtmlEncoder.htmlEncode(content.headline) + '&lt;/a&gt;', false);</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, val);</span>
+    };
+    
+    /**
+     *
+     * @method createContentPermalink
+     * @param {Object} content
+     * @return {String}
+     */
+    ContentViewLoader.prototype.createContentPermalink = <span class="fstat-no" title="function not covered" >function(content) {</span>
+<span class="cstat-no" title="statement not covered" >        var prefix = '/' + this.service.getType();</span>
+<span class="cstat-no" title="statement not covered" >        return pb.UrlService.createSystemUrl(pb.UrlService.urlJoin(prefix, content.url));</span>
+    };
+    
+    /**
+     *
+     * @static
+     * @method getDisplayAttr
+     * @param {*} val
+     * @return {String}
+     */
+    ContentViewLoader.getDisplayAttr = <span class="fstat-no" title="function not covered" >function(val) {</span>
+<span class="cstat-no" title="statement not covered" >        return val ? '' : DISPLAY_NONE_STYLE_ATTR;</span>
+    };
+    
+    /**
+     * When passed a value it is evaluated as a boolean.  If evaluated to TRUE 
+     * the value is returned, if FALSE empty string is returned
+     * @static
+     * @method valOrEmpty
+     * @param {*} val
+     * @return {*}
+     */
+    ContentViewLoader.valOrEmpty = <span class="fstat-no" title="function not covered" >function(val) {</span>
+<span class="cstat-no" title="statement not covered" >        return val ? val : '';</span>
+    };
+    
+    return ContentViewLoader;
+};</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

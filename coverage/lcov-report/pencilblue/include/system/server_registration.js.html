@@ -1,0 +1,1098 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/system/server_registration.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/system/server_registration.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">19.82% <small>(22 / 111)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">3.03% <small>(1 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">19.82% <small>(22 / 111)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/system/</a> &#187; server_registration.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343
+344
+345
+346
+347
+348</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var cluster = require('cluster');
+var os      = require('os');
+var domain  = require('domain');
+var process = require('process');
+var async   = require('async');
+var util    = require('../util.js');
+&nbsp;
+module.exports = function ServerRegistrationModule(pb) {
+    
+    /**
+     * Singleton instance
+     * @private
+     * @static
+     * @property INSTANCE
+     * @type {ServerRegistration}
+     */
+    var INSTANCE = null;
+&nbsp;
+    /**
+     * Service that provides the ability for the process/node to register itself so
+     * that other nodes in the system can find it.  In addition, it helps with the
+     * health monitoring of the system.
+     * @class ServerRegistration
+     * @constructor
+     */
+<span class="fstat-no" title="function not covered" >    function ServerRegistration(provider){</span>
+<span class="cstat-no" title="statement not covered" >        if (!provider) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error('RegistrationProvider instance is required');</span>
+        }
+<span class="cstat-no" title="statement not covered" >        this.provider = provider;</span>
+<span class="cstat-no" title="statement not covered" >        this.timerHandle = null;</span>
+    };
+&nbsp;
+    /**
+     * The default set of functions that gather the default set of information.
+     * @private
+     * @property ITEM_CALLBACKS
+     * @type {Object}
+     */
+    var ITEM_CALLBACKS = {
+&nbsp;
+        //ip address
+        ip: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, ServerRegistration.getIp());</span>
+        },
+&nbsp;
+        is_master: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, cluster.isMaster);</span>
+        },
+&nbsp;
+        process_type: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, cluster.worker ? 'Worker' : 'Master');</span>
+        },
+&nbsp;
+        worker_id: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, cluster.worker ? cluster.worker.id : 'M');</span>
+        },
+&nbsp;
+        port: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, pb.config.sitePort);</span>
+        },
+&nbsp;
+        host: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, os.hostname());</span>
+        },
+&nbsp;
+        pid: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, process.pid);</span>
+        },
+&nbsp;
+        node_version: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, process.version);</span>
+        },
+&nbsp;
+        active_plugins: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            var pluginService = new pb.PluginService();</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, pluginService.getActivePluginNames());</span>
+        },
+&nbsp;
+        uptime: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, process.uptime());</span>
+        },
+&nbsp;
+        mem_usage: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, process.memoryUsage());</span>
+        },
+&nbsp;
+        cwd: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, process.cwd());</span>
+        },
+&nbsp;
+        type: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, 'pencilblue');</span>
+        },
+&nbsp;
+        pb_version: <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, pb.config.version);</span>
+        }
+    };
+&nbsp;
+    /**
+     * Retrieves the most recent status from the entire cluster.
+     * @method getClusterStatus
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Array)
+     */
+    ServerRegistration.prototype.getClusterStatus = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        this.provider.get(cb);</span>
+    };
+&nbsp;
+    /**
+     * Removes all entries from the server registry
+     * @static
+     * @method flush
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    ServerRegistration.prototype.flush = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        this.provider.flush(cb);</span>
+    };
+&nbsp;
+    /**
+     * Should only be called once at startup.  The function verifies that the
+     * registry is enabled and initializes the correct storage provider.
+     * @static
+     * @method init
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    ServerRegistration.prototype.init = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!pb.config.registry.enabled) {</span>
+<span class="cstat-no" title="statement not covered" >             return cb(null, false);</span>
+         }
+         else <span class="cstat-no" title="statement not covered" >if (this.timerHandle !== null) {</span>
+<span class="cstat-no" title="statement not covered" >             return cb(null, true);</span>
+         }
+&nbsp;
+         //initialize the provider
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        this.provider.init(<span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err) || !result) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err, false);</span>
+            }
+&nbsp;
+            //do first update and schedule the rest
+<span class="cstat-no" title="statement not covered" >            self.doRegistration();</span>
+<span class="cstat-no" title="statement not covered" >            this.timerHandle = setInterval(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                self.doRegistration();</span>
+            }, pb.config.registry.update_interval);
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            cb(err, true);</span>
+        });
+    };
+&nbsp;
+    /**
+     * Called during shutdown.  The function is responsible for clearing any
+     * scheduled updates and shutting down the storage provider.
+     * @static
+     * @method shutdown
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    ServerRegistration.prototype.shutdown = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        cb = cb || util.cb;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!this.timerHandle) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, true);</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        clearInterval(this.timerHandle);</span>
+<span class="cstat-no" title="statement not covered" >        this.provider.shutdown(ServerRegistration.generateKey(), cb);</span>
+    };
+&nbsp;
+    /**
+     * Registers a function to be called on every status update.  The function
+     * should take one parameter: a callback function that accepts two parameters,
+     * the first being an error if it occurred and the second being the current
+     * value for the information requested.
+     * @static
+     * @method addItem
+     * @param {String} name The name and/or description of the information being
+     * gathered
+     * @param {Function} The function to be called to gather the data.
+     * @return {Boolean} TRUE if the function is successfully registered, FALSE if not.
+     */
+    ServerRegistration.addItem = <span class="fstat-no" title="function not covered" >function(name, itemValueFunction) {</span>
+<span class="cstat-no" title="statement not covered" >         if (!pb.validation.validateNonEmptyStr(name, true) || !util.isFunction(itemValueFunction)) {</span>
+<span class="cstat-no" title="statement not covered" >             return false;</span>
+         }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >         ITEM_CALLBACKS[name] = itemValueFunction;</span>
+<span class="cstat-no" title="statement not covered" >         return true;</span>
+    };
+&nbsp;
+    /**
+     * Performs the request for information and persists it through the storage
+     * provider.
+     * @static
+     * @method doRegistration
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    ServerRegistration.prototype.doRegistration = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        cb = cb || util.cb;</span>
+&nbsp;
+        //ensure a provider was instantiated.  
+        //Server registration could be turned off.
+<span class="cstat-no" title="statement not covered" >        if (!this.provider) {</span>
+<span class="cstat-no" title="statement not covered" >            return cb(null, false);</span>
+        }
+&nbsp;
+        //create a function to execute when all items have been retrieved
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        var onItemsGathered = <span class="fstat-no" title="function not covered" >function(err, update) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.error("ServerRegistration: Failed to gather all data for registration: %s", err.message);</span>
+            }
+            else <span class="cstat-no" title="statement not covered" >if (!util.isObject(update)) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err, false);</span>
+            }
+            
+            //perform the registration update
+<span class="cstat-no" title="statement not covered" >            update.id          = ServerRegistration.generateKey();</span>
+<span class="cstat-no" title="statement not covered" >            update.last_update = new Date();</span>
+<span class="cstat-no" title="statement not covered" >            self.provider.set(update.id, update, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                ServerRegistration.logUpdateResult(update.id, update, err, result);</span>
+<span class="cstat-no" title="statement not covered" >                cb(err, result);</span>
+            });
+         };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >         var d = domain.create();</span>
+<span class="cstat-no" title="statement not covered" >         d.on('error', <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >            pb.log.error('ServerRegistration: Failed to perform update: %s', err.stack);</span>
+         });
+<span class="cstat-no" title="statement not covered" >         d.run(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >             async.parallel(ITEM_CALLBACKS, onItemsGathered);</span>
+         });
+    };
+&nbsp;
+    /**
+     * 
+     * @static
+     * @method logUpdateResult
+     * @param {String} key
+     * @param {Object} update
+     * @param {Error} err
+     * @param {Boolean} result
+     */
+    ServerRegistration.logUpdateResult = <span class="fstat-no" title="function not covered" >function(key, update, err, result) {</span>
+<span class="cstat-no" title="statement not covered" >        if (pb.config.registry.logging_enabled) {</span>
+<span class="cstat-no" title="statement not covered" >            if (pb.log.isDebug()) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.debug("ServerRegistration: Attempted to update registration. KEY=[%s] Result=[%s] ERROR=[%s]", key, util.inspect(result), err ? err.message : 'NONE');</span>
+            }
+<span class="cstat-no" title="statement not covered" >            if (pb.log.isSilly()) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.silly("ServerRegistration: Last Update\n%s", util.inspect(update));</span>
+            }
+        }
+    };
+&nbsp;
+    /**
+     * Generates the unique key for the PB process/node.
+     * @static
+     * @method generateKey
+     * @return {String} The unique identifier
+     */
+    ServerRegistration.generateKey = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return ServerRegistration.getIp() + ':' + pb.config.sitePort + ':' + (cluster.worker ? cluster.worker.id : 'M') + ':' + os.hostname();</span>
+    };
+&nbsp;
+    /**
+     * Retrieves a unique key for the server but not for the process
+     * @static
+     * @method generateServerKey
+     * @return {String} server key
+     */
+    ServerRegistration.generateServerKey = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return ServerRegistration.getIp() + ':' + pb.config.sitePort + ':' + os.hostname();</span>
+    };
+&nbsp;
+    /**
+     * Retrieves the first IP address found for the node.
+     * @static
+     * @method getIp
+     * @return {String} The first IP address found for the node
+     */
+    ServerRegistration.getIp = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >         var interfaces = os.networkInterfaces();</span>
+<span class="cstat-no" title="statement not covered" >         var address = null;</span>
+<span class="cstat-no" title="statement not covered" >         for (k in interfaces) {</span>
+<span class="cstat-no" title="statement not covered" >             for (k2 in interfaces[k]) {</span>
+<span class="cstat-no" title="statement not covered" >                 var addr = interfaces[k][k2];</span>
+<span class="cstat-no" title="statement not covered" >                 if (addr.family == 'IPv4' &amp;&amp; !addr.internal) {</span>
+<span class="cstat-no" title="statement not covered" >                     address = addr.address;</span>
+<span class="cstat-no" title="statement not covered" >                     break;</span>
+                 }
+             }
+         }
+<span class="cstat-no" title="statement not covered" >         return address;</span>
+    };
+    
+    /**
+     * Retrieves the singleton instance of the service registry
+     * @static
+     * @method getInstance
+     * @param {RegistrationProvider} [provider]
+     * @return {ServerRegistration}
+     */
+    ServerRegistration.getInstance = <span class="fstat-no" title="function not covered" >function(provider) {</span>
+<span class="cstat-no" title="statement not covered" >        if (INSTANCE) {</span>
+<span class="cstat-no" title="statement not covered" >            return INSTANCE;</span>
+        }
+        
+        //create a provider if not provided
+<span class="cstat-no" title="statement not covered" >        var provider = null;</span>
+<span class="cstat-no" title="statement not covered" >        if (!provider) {</span>
+            
+<span class="cstat-no" title="statement not covered" >            var RegistrationProvider = null;</span>
+<span class="cstat-no" title="statement not covered" >            if (pb.config.registry.type === 'redis') {</span>
+<span class="cstat-no" title="statement not covered" >                RegistrationProvider = pb.RedisRegistrationProvider;</span>
+            }
+            else <span class="cstat-no" title="statement not covered" >if (pb.config.registry.type === 'mongo') {</span>
+<span class="cstat-no" title="statement not covered" >                RegistrationProvider = pb.MongoRegistrationProvider;</span>
+            }
+            else {
+<span class="cstat-no" title="statement not covered" >                RegistrationProvider = require(pb.config.registry.type)(pb);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            provider = new RegistrationProvider();</span>
+        }
+        
+<span class="cstat-no" title="statement not covered" >        return INSTANCE = new ServerRegistration(provider);</span>
+    };
+&nbsp;
+    return ServerRegistration;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

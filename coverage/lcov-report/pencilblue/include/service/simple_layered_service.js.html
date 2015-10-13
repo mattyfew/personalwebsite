@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/service/simple_layered_service.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/service/simple_layered_service.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">20.83% <small>(10 / 48)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">6.25% <small>(1 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">15.38% <small>(2 / 13)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">20.83% <small>(10 / 48)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/service/</a> &#187; simple_layered_service.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var async = require('async');
+var util  = require('../util.js');
+&nbsp;
+module.exports = function SimpleLayeredServiceModule(pb) {
+&nbsp;
+    /**
+     * Service for layering storage services
+     *
+     * @module Services
+     * @submodule Storage
+     * @class SimpleLayeredService
+     * @constructor
+     * @param {Array} services Array of services
+     * @param {String} [name]  The name to assign to this service
+     */
+    function SimpleLayeredService(services, name){
+        this.services = services;
+        this.name     = name ? name : <span class="branch-1 cbranch-no" title="branch not covered" >'SimpleLayeredService';</span>
+    }
+&nbsp;
+    /**
+     * Retrieves the setting value from various storage areas.
+     *
+     * @method get
+     * @param {String} key
+     * @param {Object} cb Callback function
+     */
+    SimpleLayeredService.prototype.get = <span class="fstat-no" title="function not covered" >function(key, cb){</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var i              = 0;</span>
+<span class="cstat-no" title="statement not covered" >        var resultNotFound = true;</span>
+<span class="cstat-no" title="statement not covered" >        var entity         = null;</span>
+<span class="cstat-no" title="statement not covered" >        var instance       = this;</span>
+<span class="cstat-no" title="statement not covered" >        async.whilst(</span>
+<span class="fstat-no" title="function not covered" >            function() {</span> //while
+<span class="cstat-no" title="statement not covered" >                return i &lt; instance.services.length &amp;&amp; resultNotFound;</span>
+            },
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>//do
+<span class="cstat-no" title="statement not covered" >                if (pb.log.isSilly()) {</span>
+<span class="cstat-no" title="statement not covered" >                    pb.log.silly(instance.name+": Checking Service ["+instance.services[i].type+"] for Key ["+key+"]");</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                instance.services[i].get(key, <span class="fstat-no" title="function not covered" >function(err, result){</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (util.isError(err)){</span>
+<span class="cstat-no" title="statement not covered" >                        resultNotFound = false;</span>
+<span class="cstat-no" title="statement not covered" >                        callback(err);</span>
+<span class="cstat-no" title="statement not covered" >                        return;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    if (result) {</span>
+<span class="cstat-no" title="statement not covered" >                        resultNotFound = false;</span>
+<span class="cstat-no" title="statement not covered" >                        entity         = result;</span>
+                    }
+                    else{
+<span class="cstat-no" title="statement not covered" >                        i++;</span>
+                    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    callback();</span>
+                });
+            },
+<span class="fstat-no" title="function not covered" >            function(err){</span>//when done
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                if (entity) {</span>
+&nbsp;
+                    //set value in services that didn't have it.
+<span class="cstat-no" title="statement not covered" >                    for (var j = 0; j &lt; i; j++) {</span>
+<span class="cstat-no" title="statement not covered" >                        if (instance.services[j]._set) {</span>
+<span class="cstat-no" title="statement not covered" >                            instance.services[j]._set(key, entity, util.cb)</span>
+                        }
+                        else {
+<span class="cstat-no" title="statement not covered" >                           instance.services[j].set(key, entity, util.cb);</span>
+                        }
+                    }
+                }
+&nbsp;
+                //callback to original caller
+<span class="cstat-no" title="statement not covered" >                cb(err, entity);</span>
+            }
+        );
+    };
+&nbsp;
+    /**
+     * Persists a new value for the setting.  When the setting does not exist a new
+     * one is created.
+     *
+     * @method set
+     * @param {String} key
+     * @param {*}      value
+     * @param cb       Callback function
+     */
+    SimpleLayeredService.prototype.set = <span class="fstat-no" title="function not covered" >function(key, value, cb){</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var tasks = [];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = this.services.length -1; i &gt;= 0; i--){</span>
+<span class="cstat-no" title="statement not covered" >            var task = <span class="fstat-no" title="function not covered" >function(index){</span></span>
+<span class="cstat-no" title="statement not covered" >                return <span class="fstat-no" title="function not covered" >function(callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (pb.log.isSilly()) {</span>
+<span class="cstat-no" title="statement not covered" >                        pb.log.silly("%s:%s: Setting [%s] Value %s", self.name, self.services[index].type, key, JSON.stringify(value));</span>
+                    }
+<span class="cstat-no" title="statement not covered" >                    self.services[index].set(key, value, callback);</span>
+                };
+            };
+<span class="cstat-no" title="statement not covered" >            tasks.push(task(i));</span>
+        }
+<span class="cstat-no" title="statement not covered" >        async.series(tasks, cb);</span>
+    };
+&nbsp;
+    /**
+     * Removes the value from storage.
+     *
+     * @method purge
+     * @param {String} key
+     * @param cb       Callback function
+     */
+    SimpleLayeredService.prototype.purge = <span class="fstat-no" title="function not covered" >function(key, cb){</span>
+<span class="cstat-no" title="statement not covered" >        var tasks = util.getTasks(this.services, <span class="fstat-no" title="function not covered" >function(services, i) {</span></span>
+<span class="cstat-no" title="statement not covered" >            return <span class="fstat-no" title="function not covered" >function(callback) {</span></span>
+<span class="cstat-no" title="statement not covered" >                services[i].purge(key, callback);</span>
+            };
+        });
+<span class="cstat-no" title="statement not covered" >        async.series(tasks, cb);</span>
+    };
+&nbsp;
+    return SimpleLayeredService;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../sorter.js"></script>
+</body>
+</html>

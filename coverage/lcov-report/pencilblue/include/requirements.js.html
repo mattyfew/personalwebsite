@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/requirements.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../prettify.css">
+
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header high">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/requirements.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">90% <small>(108 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">90% <small>(108 / 120)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/</a> &#187; requirements.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var path = require('path');
+&nbsp;
+/**
+ * Requirements - Responsible for declaring all of the system types and modules
+ * needed to construct the system API object.
+ * @class PB
+ * @param {Object} config
+ * @return {Object} The pb namespace
+ */
+module.exports = function PB(config) {
+    
+    //define what will become the global entry point into the server api.
+    var pb = {};
+&nbsp;
+    //make the configuration available
+    pb.config = config;
+&nbsp;
+    //setup utils
+    pb.util    = require(path.join(config.docRoot, '/include/util.js'));
+    Object.defineProperty(pb, 'utils', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.utils is deprecated.  Use pb.util instead');</span>
+<span class="cstat-no" title="statement not covered" >            return pb.util;</span>
+        }
+    });
+&nbsp;
+    //initialize logging
+    pb.log    = require(path.join(config.docRoot, '/include/utils/logging.js'))(config);
+    
+    //setup the System instance
+    pb.System = require(path.join(config.docRoot, 'include/system/system.js'));
+    pb.system = new pb.System(pb);
+&nbsp;
+    //configure cache
+    var CacheModule = require(path.join(config.docRoot, '/include/dao/cache.js'));
+    pb.CacheFactory = CacheModule(pb).CacheFactory;
+    pb.cache        = pb.CacheFactory.getInstance();
+&nbsp;
+    //configure the DB manager
+    pb.DBManager = require(config.docRoot+'/include/dao/db_manager')(pb);
+    pb.dbm       = new pb.DBManager();
+&nbsp;
+    //setup system class types
+    pb.DAO = require(config.docRoot+'/include/dao/dao')(pb);
+&nbsp;
+    //setup validation services
+    var ValidationModule = require(path.join(config.docRoot, '/include/validation/validation_service.js'));
+    pb.ValidationService = ValidationModule(pb);
+    pb.validation        = pb.ValidationService;
+    
+    //lock services
+    pb.locks = {
+        providers: {
+            CacheLockProvider: require(path.join(config.docRoot, '/include/service/locks/providers/cache_lock_provider.js'))(pb),
+            DbLockProvider: require(path.join(config.docRoot, '/include/service/locks/providers/db_lock_provider.js'))(pb)
+        }
+    };
+    pb.LockService = require(path.join(config.docRoot, '/include/service/locks/lock_service.js'))(pb);
+&nbsp;
+    //setup the session handler
+    var SessionModule = require(path.join(config.docRoot, '/include/session/session.js'));
+    pb.SessionHandler = SessionModule(pb);
+    pb.session        = new pb.SessionHandler(pb.SessionHandler.getSessionStoreInstance());
+&nbsp;
+    //setup object services
+    pb.SimpleLayeredService         = require(path.join(config.docRoot, '/include/service/simple_layered_service.js'))(pb);
+    pb.MemoryEntityService          = require(path.join(config.docRoot, '/include/service/memory_entity_service.js'))(pb);
+    pb.CacheEntityService           = require(path.join(config.docRoot, '/include/service/cache_entity_service.js'))(pb);
+    pb.DBEntityService              = require(path.join(config.docRoot, '/include/service/db_entity_service.js'))(pb);
+    pb.FSEntityService              = require(path.join(config.docRoot, '/include/service/fs_entity_service.js'))(pb);
+    pb.JSONFSEntityService          = require(path.join(config.docRoot, '/include/service/json_fs_entity_service.js'))(pb);
+    pb.ReadOnlySimpleLayeredService = require(path.join(config.docRoot, '/include/service/read_only_simple_layered_service.js'))(pb);
+    pb.TemplateEntityService        = require(path.join(config.docRoot, '/include/service/template_entity_service.js'))(pb);
+    pb.CustomObjectService          = require(path.join(config.docRoot, 'include/service/entities/custom_object_service.js'))(pb);
+&nbsp;
+    //setup template service
+    var TemplateModule = require(config.docRoot+'/include/service/entities/template_service.js')(pb);
+    pb.TemplateService = TemplateModule.TemplateService;
+    pb.TemplateValue   = TemplateModule.TemplateValue;
+&nbsp;
+    //setup security
+    pb.SecurityService                = require(path.join(config.docRoot, '/include/access_management.js'))(pb);
+    pb.security                       = pb.SecurityService;
+    var Authentication                = require(path.join(config.docRoot, '/include/security/authentication'))(pb);
+    pb.UsernamePasswordAuthentication = Authentication.UsernamePasswordAuthentication;
+    pb.FormAuthentication             = Authentication.FormAuthentication;
+&nbsp;
+    //setup user service
+    pb.BaseObjectService = require(path.join(config.docRoot, '/include/service/base_object_service.js'))(pb);
+    pb.UserService       = require(path.join(config.docRoot, '/include/service/entities/user_service.js'))(pb);
+    Object.defineProperty(pb, 'users', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.users is deprecated.  Use new pb.UserService(context) instead');</span>
+<span class="cstat-no" title="statement not covered" >            return new pb.UserService();</span>
+        }
+    });
+&nbsp;
+    //setup request handling
+    var BodyParsers        = require(path.join(config.docRoot, 'include/http/parsers'))(pb);
+    pb.BaseBodyParser      = BodyParsers.BaseBodyParser;
+    pb.JsonBodyParser      = BodyParsers.JsonBodyParser;
+    pb.FormBodyParser      = BodyParsers.FormBodyParser;
+    pb.BaseController      = require(path.join(config.docRoot, '/controllers/base_controller.js'))(pb);
+    pb.BaseApiController   = require(path.join(config.docRoot, '/controllers/api/base_api_controller.js'))(pb);
+    pb.ViewController      = require(path.join(config.docRoot, '/controllers/view_controller.js'))(pb);
+    pb.FormController      = require(path.join(config.docRoot, '/controllers/form_controller.js'))(pb);
+    pb.DeleteController    = require(path.join(config.docRoot, '/controllers/delete_controller.js'))(pb);
+    pb.ApiActionController = require(path.join(config.docRoot, '/controllers/api/api_action_controller.js'))(pb);
+    pb.RequestHandler      = require(path.join(config.docRoot, '/include/http/request_handler.js'))(pb);
+&nbsp;
+    //setup errors
+    pb.PBError    = require(path.join(config.docRoot, '/include/error/pb_error.js'))(pb);
+    pb.ErrorsOverTime = require(path.join(config.docRoot, '/include/error/errors_over_time.js'))(pb);
+    pb.ErrorFormatters = require(path.join(config.docRoot, '/include/error/formatters/error_formatters.js'))(pb);
+&nbsp;
+    //setup localization
+    pb.Localization = require(path.join(config.docRoot, '/include/localization.js'))(pb);
+&nbsp;
+    //server registration
+    pb.MongoRegistrationProvider = require(path.join(config.docRoot, '/include/system/registry/mongo_registration_provider.js'))(pb);
+    pb.RedisRegistrationProvider = require(path.join(config.docRoot, '/include/system/registry/redis_registration_provider.js'))(pb);
+    pb.ServerRegistration        = require(path.join(config.docRoot, '/include/system/server_registration.js'))(pb);
+&nbsp;
+    //command service
+    pb.RedisCommandBroker = require(path.join(config.docRoot, '/include/system/command/redis_command_broker.js'))(pb);
+    pb.MongoCommandBroker = require(path.join(config.docRoot, '/include/system/command/mongo_command_broker.js'))(pb);
+    pb.CommandService     = require(path.join(config.docRoot, '/include/system/command/command_service.js'))(pb);
+&nbsp;
+    //setup settings service
+    pb.SettingServiceFactory = require(path.join(config.docRoot, '/include/system/settings.js'))(pb);
+    pb.settings              = pb.SettingServiceFactory.getService(pb.config.settings.use_memory, pb.config.settings.use_cache);
+&nbsp;
+    //Jobs
+    pb.JobRunner             = require(path.join(config.docRoot, '/include/service/jobs/job_runner.js'))(pb);
+    pb.AsyncJobRunner        = require(path.join(config.docRoot, '/include/service/jobs/async_job_runner'))(pb);
+    pb.ClusterJobRunner      = require(path.join(config.docRoot, '/include/service/jobs/cluster_job_runner'))(pb);
+    pb.PluginJobRunner       = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_job_runner.js'))(pb);
+    pb.PluginUninstallJob    = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_uninstall_job.js'))(pb);
+    pb.PluginAvailableJob    = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_available_job.js'))(pb);
+    pb.PluginDependenciesJob = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_dependencies_job.js'))(pb);
+    pb.PluginInitializeJob   = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_initialize_job.js'))(pb);
+    pb.PluginInstallJob      = require(path.join(config.docRoot, '/include/service/jobs/plugins/plugin_install_job.js'))(pb);
+&nbsp;
+    //Email settings and functions
+    pb.EmailService = require(path.join(config.docRoot, '/include/email'))(pb);
+&nbsp;
+    //system requires
+    pb.DocumentCreator = require(config.docRoot+'/include/model/create_document.js')(pb);	// Document creation
+    pb.ContentService  = require(path.join(config.docRoot, '/include/content'))(pb); // Content settings and functions
+    Object.defineProperty(pb, 'content', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.content is deprecated.  Use pb.ContentService instead');</span>
+<span class="cstat-no" title="statement not covered" >            return new pb.ContentService();</span>
+        }
+    });
+    pb.LibrariesService = require(path.join(config.docRoot, '/include/libraries.js'))(pb); // JS libraries settings and functions
+    Object.defineProperty(pb, 'libraries', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.libraries is deprecated.  Use pb.LibrariesService instead');</span>
+<span class="cstat-no" title="statement not covered" >            return new pb.ContentService();</span>
+        }
+    });
+    pb.ClientJs = require(config.docRoot+'/include/client_js')(pb); // Client JS
+    Object.defineProperty(pb, 'js', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.js is deprecated.  Use pb.ClientJs instead');</span>
+<span class="cstat-no" title="statement not covered" >            return pb.ClientJS;</span>
+        }
+    });						
+    pb.AdminNavigation    = require(path.join(config.docRoot, '/include/admin_navigation'))(pb);			// Admin Navigation
+    pb.AdminSubnavService = require(path.join(config.docRoot, '/include/service/admin/admin_subnav_service.js'))(pb);
+    pb.AnalyticsManager   = require(path.join(config.docRoot, '/include/system/analytics_manager.js'))(pb);
+    pb.UrlService         = require(path.join(config.docRoot, '/include/service/entities/url_service.js'))(pb);
+    pb.CallHomeService    = require(path.join(config.docRoot, '/include/system/call_home_service.js'))(pb);
+    pb.JobService         = require(path.join(config.docRoot, '/include/service/entities/job_service.js'))(pb);
+&nbsp;
+    //create plugin service
+    pb.PluginService = require(path.join(config.docRoot, '/include/service/entities/plugin_service.js'))(pb);
+    Object.defineProperty(pb, 'plugins', {
+        get: <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('PencilBlue: pb.plugins is deprecated.  Use new pb.PluginService instead');</span>
+<span class="cstat-no" title="statement not covered" >            return new pb.PluginService();</span>
+        }
+    });
+&nbsp;
+    //media renderers
+    pb.media = {
+        renderers: {
+            BaseMediaRenderer: require(path.join(config.docRoot, '/include/service/media/renderers/base_media_renderer.js'))(pb),
+        },
+        
+        providers: {
+            FsMediaProvider: require(path.join(config.docRoot, '/include/service/media/fs_media_provider.js'))(pb),
+            MongoMediaProvider: require(path.join(config.docRoot, '/include/service/media/mongo_media_provider.js'))(pb)
+        }
+    };
+    pb.media.renderers.ImageMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/image_media_renderer.js'))(pb),
+    pb.media.renderers.VideoMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/video_media_renderer.js'))(pb),
+    pb.media.renderers.YouTubeMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/youtube_media_renderer.js'))(pb),
+    pb.media.renderers.DailyMotionMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/daily_motion_media_renderer.js'))(pb),
+    pb.media.renderers.VimeoMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/vimeo_media_renderer.js'))(pb),
+    pb.media.renderers.VineMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/vine_media_renderer.js'))(pb),
+    pb.media.renderers.InstagramMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/instagram_media_renderer.js'))(pb),
+    pb.media.renderers.SlideShareMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/slideshare_media_renderer.js'))(pb),
+    pb.media.renderers.TrinketMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/trinket_media_renderer.js'))(pb),
+    pb.media.renderers.StorifyMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/storify_media_renderer.js'))(pb),
+    pb.media.renderers.KickStarterMediaRenderer = require(path.join(config.docRoot, '/include/service/media/renderers/kickstarter_media_renderer.js'))(pb)
+    
+    //providers and service
+    pb.MediaService = require(path.join(config.docRoot, '/include/service/entities/media_service.js'))(pb);
+&nbsp;
+    //content services
+    pb.SectionService = require(config.docRoot+'/include/service/entities/section_service.js')(pb);
+    pb.TopMenuService = require(config.docRoot+'/include/theme/top_menu.js')(pb);
+    
+    //object services
+    pb.TopicService         = require(path.join(config.docRoot, '/include/service/entities/topic_service.js'))(pb);
+    pb.ContentObjectService = require(path.join(config.docRoot, '/include/service/entities/content/content_object_service.js'))(pb);
+    pb.ArticleServiceV2     = require(path.join(config.docRoot, '/include/service/entities/content/article_service_v2.js'))(pb);
+    pb.ArticleRenderer      = require(path.join(config.docRoot, '/include/service/entities/content/article_renderer.js'))(pb);
+    pb.PageRenderer         = require(path.join(config.docRoot, '/include/service/entities/content/page_renderer.js'))(pb);
+    pb.PageService          = require(path.join(config.docRoot, '/include/service/entities/content/page_service.js'))(pb);
+    pb.ContentViewLoader    = require(path.join(config.docRoot, '/include/service/entities/content/content_view_loader.js'))(pb);
+    
+    var ArticleServiceModule = require(path.join(config.docRoot, '/include/service/entities/article_service.js'))(pb);
+    pb.ArticleService        = ArticleServiceModule.ArticleService;
+    pb.MediaLoader           = ArticleServiceModule.MediaLoader;
+    pb.CommentService        = require(config.docRoot+'/include/theme/comments.js')(pb);
+    
+    return pb;
+};</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../sorter.js"></script>
+</body>
+</html>

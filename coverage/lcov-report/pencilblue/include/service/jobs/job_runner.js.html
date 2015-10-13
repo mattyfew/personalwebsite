@@ -1,0 +1,948 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/service/jobs/job_runner.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/service/jobs/job_runner.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">25% <small>(18 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 35)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">7.14% <small>(1 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">25% <small>(18 / 72)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/service/jobs/</a> &#187; job_runner.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var util = require('../../util.js');
+&nbsp;
+module.exports = function JobRunnerModule(pb) {
+    
+    /**
+     * A base interface that system jobs can implement.  The premise is that every
+     * job will have an ID and a name.  The job is initialized by calling the
+     * "init" function and started by calling the "run" function.  The specific
+     * implementation is also provided with functions to report the start, update,
+     * and end of the job run.  The advantage to extending this prototype is that
+     * the provided functions allow for creating a persisted record of the job.  In
+     * addition, log statements generated by the job are also persisted (as long as
+     * the provided "log" function is called).
+     * @class JobRunner
+     * @constructor
+     */
+<span class="fstat-no" title="function not covered" >    function JobRunner(){</span>
+&nbsp;
+        /**
+         * An instace of DAO to provide direct access to the DB if it is needed.
+         * @property dao
+         * @type {DAO}
+         */
+<span class="cstat-no" title="statement not covered" >        this.dao = null;</span>
+&nbsp;
+        /**
+         * Holds the unique identifier for the job
+         * @property id
+         * @type {String}
+         */
+<span class="cstat-no" title="statement not covered" >        this.id = null;</span>
+&nbsp;
+        /**
+         * The percentage of the overall work that this job accounts for.  If this
+         * job is run by itself then the value should be 1.  This means that 100%
+         * of the job is completed by this job.  If, for example, the value is .333
+         * then it is assumed that this job accounts for 33% or one third of the
+         * over all work necessary to complete the job.  This is handy when a large
+         * job is made up of smaller jobs.  This value will assist in allowing the
+         * jobs to calculate their update increments.  The number must be a value
+         * between 0 (exclusive) &amp; 1 (inclusive).
+         * @property taskFactor
+         * @type {Float}
+         */
+<span class="cstat-no" title="statement not covered" >        this.chunkOfWorkPercentage = 1;</span>
+    }
+&nbsp;
+    /**
+     * The name of the persistence entity that contains the log statements for the
+     * job
+     * @private
+     * @static
+     * @property JOB_LOG_STORE_NAME
+     * @type {String}
+     */
+    var JOB_LOG_STORE_NAME = 'job_log';
+&nbsp;
+    /**
+     * The name of the persistence entity that contains the job descriptor
+     * @private
+     * @static
+     * @property JOB_STORE_NAME
+     * @type {String}
+     */
+    var JOB_STORE_NAME     = 'job_run';
+&nbsp;
+    /**
+     * The status code for a job that is in progress
+     * @private
+     * @static
+     * @property DEFAULT_START_STATUS
+     * @type {String}
+     */
+    var DEFAULT_START_STATUS = 'RUNNING';
+&nbsp;
+    /**
+     * The status code for a job that has completed successfully
+     * @private
+     * @static
+     * @property DEFAULT_DONE_STATUS
+     * @type {String}
+     */
+    var DEFAULT_DONE_STATUS  = 'COMPLETED';
+&nbsp;
+    /**
+     * The status code for a job that has generated a fatal error
+     * @private
+     * @static
+     * @property DEFAULT_ERROR_STATUS
+     * @type {String}
+     */
+    var DEFAULT_ERROR_STATUS = 'ERRORED';
+&nbsp;
+    /**
+     * The initialization function sets the job's name and ID as well as provide an
+     * instace of DAO.
+     * @method init
+     * @param {String} name The job's name
+     * @param {String} [jobId] The job's unique identifier
+     */
+    JobRunner.prototype.init = <span class="fstat-no" title="function not covered" >function(name, jobId) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.dao  = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        this.id   = jobId || util.uniqueId();</span>
+<span class="cstat-no" title="statement not covered" >        this.name = name || this.id;</span>
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    }
+&nbsp;
+    /**
+     * Retrieves the unique identifier for the job
+     * @method getId
+     * @return {String} The job ID
+     */
+    JobRunner.prototype.getId = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return this.id;</span>
+    };
+&nbsp;
+    /**
+     * Sets the portion of the over arching job that this job instance will 
+     * contribute once complete.
+     * @method setChunkOfWorkPercentage
+     * @param {Float} chunkOfWorkPercentage
+     * @return {JobRunner}
+     */
+    JobRunner.prototype.setChunkOfWorkPercentage = <span class="fstat-no" title="function not covered" >function(chunkOfWorkPercentage) {</span>
+<span class="cstat-no" title="statement not covered" >        if (isNaN(chunkOfWorkPercentage) || chunkOfWorkPercentage &lt;= 0 || chunkOfWorkPercentage &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error('The chunkOfWorkPercentage must be a value between 0 (exclusive) and 1 (inclusive)');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.chunkOfWorkPercentage = chunkOfWorkPercentage;</span>
+<span class="cstat-no" title="statement not covered" >        return this;</span>
+    };
+&nbsp;
+    /**
+     * Retrieves the chunk of work percentage
+     * @method getChunkOfWorkPercentage
+     * @return {Float}
+     */
+    JobRunner.prototype.getChunkOfWorkPercentage = <span class="fstat-no" title="function not covered" >function() {</span>
+<span class="cstat-no" title="statement not covered" >        return this.chunkOfWorkPercentage;</span>
+    };
+&nbsp;
+    /**
+     * Call this function once to start the job.  The job will execute the callback
+     * upon completion.
+     * @method run
+     * @param {Function} cb A callback that provides two parameters: The first is
+     * any error that was generated and the second is the implementation specific
+     * result of the job.
+     */
+    JobRunner.prototype.run = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error('This function must be overriden by an extending prototype');</span>
+    };
+&nbsp;
+    /**
+     * Logs a message to the system logger as well as to the persistence layer. The
+     * function takes a variable number of arguments.  A string message/pattern
+     * followed by the variables to fill in with that data.  See util.format or the
+     * implementation for Winston loggers.
+     * @method log
+     * @param {String} message The message or pattern to log
+     */
+    JobRunner.prototype.log = <span class="fstat-no" title="function not covered" >function() {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var args = Array.prototype.splice.call(arguments, 0);</span>
+<span class="cstat-no" title="statement not covered" >        if (args.length &gt; 0) {</span>
+<span class="cstat-no" title="statement not covered" >            args[0] = this.name+': '+args[0];</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            var meta    = [];</span>
+<span class="cstat-no" title="statement not covered" >            var message = args[0];</span>
+<span class="cstat-no" title="statement not covered" >            if (args.length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >                message = util.format.apply(util, args);</span>
+            }
+<span class="cstat-no" title="statement not covered" >            var statement = {</span>
+                object_type: JOB_LOG_STORE_NAME,
+                job_id: this.id,
+                worker_id: pb.system.getWorkerId(),
+                name: this.name,
+                message: message,
+                metadata: meta
+            };
+<span class="cstat-no" title="statement not covered" >            this.dao.save(statement, util.cb);</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.debug.apply(pb.log, args);</span>
+        }
+    };
+&nbsp;
+    /**
+     * To be called once by the extending implmentation to mark the start of the
+     * job.  The function persists the job record and makes it available to future
+     * calls to onUpdate or onComplete.
+     * @method onStart
+     * @param {String} [status='RUNNING'] The starting status of the job
+     */
+    JobRunner.prototype.onStart = <span class="fstat-no" title="function not covered" >function(status) {</span>
+<span class="cstat-no" title="statement not covered" >        var job         = pb.DAO.getIdWhere(this.getId());</span>
+<span class="cstat-no" title="statement not covered" >        job.object_type = JOB_STORE_NAME;</span>
+<span class="cstat-no" title="statement not covered" >        job.name        = this.name;</span>
+<span class="cstat-no" title="statement not covered" >        job.status      = status || DEFAULT_START_STATUS;</span>
+<span class="cstat-no" title="statement not covered" >        job.progress    = 0;</span>
+<span class="cstat-no" title="statement not covered" >        this.dao.save(job, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.error('JobRunner: Failed to mark job as started %s', err.stack);</span>
+            }
+        });
+    };
+&nbsp;
+    /**
+     * To be called by the extending implmentation when progress has been made.
+     * The incremental amount of progress should be provided keeping in mind that
+     * the overall progress should not exceed 100.  Optionally, the status
+     * parameter may also be included.
+     * @method onUpdate
+     * @param {Integer} progressIncrement
+     * @param {String} [status]
+     */
+    JobRunner.prototype.onUpdate = <span class="fstat-no" title="function not covered" >function(progressIncrement, status) {</span>
+<span class="cstat-no" title="statement not covered" >        this.log('Updating job [%s:%s] by %s percent with status: %s', this.getId(), this.name, Math.floor(progressIncrement), status ? status : '');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var query   = pb.DAO.getIdWhere(this.getId());</span>
+<span class="cstat-no" title="statement not covered" >        var updates = {};</span>
+<span class="cstat-no" title="statement not covered" >        if (pb.validation.isFloat(progressIncrement, true, true)) {</span>
+<span class="cstat-no" title="statement not covered" >            updates['$inc'] = {progress: progressIncrement};</span>
+        }
+<span class="cstat-no" title="statement not covered" >        if (pb.validation.validateNonEmptyStr(status, true)) {</span>
+<span class="cstat-no" title="statement not covered" >            updates['$set'] = {status: status};</span>
+        }
+&nbsp;
+        //ensure we need to update
+<span class="cstat-no" title="statement not covered" >        if (updates !== {}) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            this.dao.updateFields(JOB_STORE_NAME, query, updates, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                    pb.log.error('JobRunner: Failed to update job progress - ', err.stack);</span>
+                }
+            });
+        }
+    };
+&nbsp;
+    /**
+     * Called once by the extending implementation when the job has completed
+     * execution whether that be successful completion or by error.
+     * @method onCompleted
+     * @param {String} [status] The final status of the job.  If not provided the
+     * status will default to 'COMPLETED' or 'ERRORED' when an error is provided as
+     * the second parameter.
+     * @param {Error} err The error, if any, that was generated by the job's
+     * execution
+     */
+    JobRunner.prototype.onCompleted = <span class="fstat-no" title="function not covered" >function(status, err) {</span>
+<span class="cstat-no" title="statement not covered" >        if (util.isError(status)) {</span>
+<span class="cstat-no" title="statement not covered" >            err = status;</span>
+<span class="cstat-no" title="statement not covered" >            status = DEFAULT_ERROR_STATUS;</span>
+        }
+        else <span class="cstat-no" title="statement not covered" >if (!status) {</span>
+<span class="cstat-no" title="statement not covered" >            status = DEFAULT_DONE_STATUS;</span>
+        }
+&nbsp;
+        //log result
+<span class="cstat-no" title="statement not covered" >        this.log('Setting job [%s:%s] as completed with status: %s', this.getId(), this.name, status);</span>
+&nbsp;
+        //persist result
+<span class="cstat-no" title="statement not covered" >        var query = pb.DAO.getIdWhere(this.getId());</span>
+<span class="cstat-no" title="statement not covered" >        var sets  = {</span>
+            $set: {
+                status: status,
+                progress: 100,
+                error: err ? err.stack : undefined
+            }
+        };
+<span class="cstat-no" title="statement not covered" >        this.dao.updateFields(JOB_STORE_NAME, query, sets, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.error('JobRunner: Failed to update job as completed - %s', err.stack);</span>
+            }
+        });
+    };
+&nbsp;
+    //exports
+    return JobRunner;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

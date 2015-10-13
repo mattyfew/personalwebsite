@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/system/command/redis_command_broker.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/system/command/redis_command_broker.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">26.09% <small>(12 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">22.22% <small>(2 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">26.09% <small>(12 / 46)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/system/command/</a> &#187; redis_command_broker.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var util = require('../../util.js');
+&nbsp;
+module.exports = function RedisCommandBrokerModule(pb) {
+&nbsp;
+    /**
+     * Brokers messages using Redis as the medium.  The implementation follows a
+     * publish/subscribe model that allows for listening for changes based on a a
+     * specified channel.
+     * @class RedisCommandBroker
+     * @constructor
+     */
+    function RedisCommandBroker(){
+&nbsp;
+        /**
+         * Client used to publish commands to the cluster
+         * @property publishClient
+         * @type {Client}
+         */
+        this.publishClient = null;
+&nbsp;
+        /**
+         * Client used to subscribe to commands to the cluster
+         * @property publishClient
+         * @type {Client}
+         */
+        this.subscribeClient = null;
+    };
+&nbsp;
+    //statics
+    /**
+     * The hash of handlers for each channel subscribed to
+     * @private
+     * @static
+     * @property SUBSCRIBERS
+     * @type {Object}
+     */
+    var SUBSCRIBERS = {};
+&nbsp;
+    /**
+     * Initializes the broker by creating the connections to Redis and registering
+     * for the message event.
+     * @method init
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Boolean)
+     */
+    RedisCommandBroker.prototype.init = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this.publishClient   = pb.CacheFactory.getInstance();</span>
+<span class="cstat-no" title="statement not covered" >        this.subscribeClient = pb.CacheFactory.createInstance();</span>
+<span class="cstat-no" title="statement not covered" >        this.subscribeClient.on('message', <span class="fstat-no" title="function not covered" >function(channel, command) {</span></span>
+<span class="cstat-no" title="statement not covered" >            self.onCommandReceived(channel, command);</span>
+        });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('RedisCommandBroker: Initialized.');</span>
+<span class="cstat-no" title="statement not covered" >        cb(null, true);</span>
+    };
+&nbsp;
+    /**
+     * Shuts down the broker by closing the open connections to Redis.
+     * @method shutdown
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Boolean)
+     */
+    RedisCommandBroker.prototype.shutdown = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('RedisCommandBroker: Shutting down...');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var clients = [this.subscribeClient, this.publishClient, ];</span>
+<span class="cstat-no" title="statement not covered" >        for (var i = 0; i &lt; clients.length; i++) {</span>
+<span class="cstat-no" title="statement not covered" >            try {</span>
+<span class="cstat-no" title="statement not covered" >                clients[i].end();</span>
+            }
+            catch(e) {
+<span class="cstat-no" title="statement not covered" >                pb.log.silly('RedisCommandBroker: Error shutting down client: %s', e.stack);</span>
+            }
+        }
+<span class="cstat-no" title="statement not covered" >        cb(null, true);</span>
+    };
+&nbsp;
+    /**
+     * Called when a member of the cluster has published a command.  The function
+     * inspects that it has a handler for the channel then delegates the command
+     * back to the handler.
+     * @method onCommandReceived
+     * @param {String} channel The channel the message was pushed to
+     * @param {String} commandStr The message that was published
+     */
+    RedisCommandBroker.prototype.onCommandReceived = <span class="fstat-no" title="function not covered" >function(channel, commandStr) {</span>
+<span class="cstat-no" title="statement not covered" >        pb.log.silly('RedisCommandBroker: Command recieved [%s]%s', channel, commandStr);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SUBSCRIBERS[channel]) {</span>
+<span class="cstat-no" title="statement not covered" >            try{</span>
+<span class="cstat-no" title="statement not covered" >                SUBSCRIBERS[channel](channel, JSON.parse(commandStr));</span>
+            }
+            catch(err){
+<span class="cstat-no" title="statement not covered" >                pb.log.error('RedisCommandHandler: An error occurred while attempting to handoff the command [%s]%s. %s', channel, commandStr, err.stack);</span>
+            }
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            pb.log.warn('RedisCommandBroker: A message was received for channel [%s] but no handler was available to accept it.', channel);</span>
+        }
+    };
+&nbsp;
+    /**
+     * Sends a message to the specified channel
+     * @method publish
+     * @param {String} channel The channel to send the message to
+     * @param {Object} command The command to send to the cluster
+     * @param {Function} cb A callback that takes two parameters: cb(Error, 1 on success/FALSE on failure)
+     */
+    RedisCommandBroker.prototype.publish = <span class="fstat-no" title="function not covered" >function(channel, command, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!util.isObject(command)) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error('The channel string and command object are required!');</span>
+        }
+&nbsp;
+        //send the command
+<span class="cstat-no" title="statement not covered" >        var commandStr = JSON.stringify(command);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        pb.log.silly('RedisCommandBroker: Sending command [%s]%s', channel, commandStr);</span>
+<span class="cstat-no" title="statement not covered" >        this.publishClient.publish(channel, commandStr, cb);</span>
+    };
+&nbsp;
+    /**
+     * Registers a handler for messages on the specified channel.
+     * @method subscribe
+     * @param {String} channel The channel to listen for messages on
+     * @param {Function} onCommandReceived A handler function that takes two
+     * arguments: onCommandReceived(channel, message) where channel is a string and
+     * message is an object.
+     * @param {Function} cb A callback that takes two parameters: cb(Error, [RESULT])
+     */
+    RedisCommandBroker.prototype.subscribe = <span class="fstat-no" title="function not covered" >function(channel, onCommandReceived, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!pb.validation.validateNonEmptyStr(channel, true) || !util.isFunction(onCommandReceived)) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('A valid channel string and handler function is required'));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        //setup the one time subscribe callback
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('RedisCommandBroker: Subcribing to channel [%s]', channel);</span>
+<span class="cstat-no" title="statement not covered" >        this.subscribeClient.once('subscribe', <span class="fstat-no" title="function not covered" >function(subscribedChannel, count) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (channel === subscribedChannel) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                SUBSCRIBERS[channel] = onCommandReceived;</span>
+<span class="cstat-no" title="statement not covered" >                cb(null, count);</span>
+            }
+        });
+<span class="cstat-no" title="statement not covered" >        this.subscribeClient.subscribe(channel);</span>
+    };
+&nbsp;
+    //exports
+    return RedisCommandBroker;
+};</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

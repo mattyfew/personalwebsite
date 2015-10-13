@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/service/jobs/plugins/plugin_uninstall_job.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/service/jobs/plugins/plugin_uninstall_job.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">16.67% <small>(11 / 66)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">4.35% <small>(1 / 23)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">17.46% <small>(11 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/service/jobs/plugins/</a> &#187; plugin_uninstall_job.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var process = require('process');
+var domain  = require('domain');
+var util    = require('../../../util.js');
+&nbsp;
+module.exports = function PluginUninstallJobModule(pb) {
+&nbsp;
+    /**
+     * A system job that coordinates the uninstall of a plugin across the cluster.
+     * The job has two modes.  The first is initiator.  This is the process that
+     * receives the request to uninstall the plugin.  It coordinates a sequenced
+     * uninstall from each process in the cluster.  The initiator does this by
+     * getting a list of active processes through the service registry.  It then
+     * uses the registry to send a message to each process to uninstall the plugin.
+     * Some operations are repeated for each server but this is ok based on the
+     * current set of operations.  When a command is received that instructs a
+     * process to uninstall a plugin it creates an instance of the plugin uninstall
+     * job with isInitiator = FALSE.  This changes causes the actual uninstall
+     * process to take place.  Log statements are sent both to the system logger
+     * and to the job log persistence entity.
+     * @class PluginUninstallJob
+     * @constructor
+     * @extends PluginJobRunner
+     */
+<span class="fstat-no" title="function not covered" >    function PluginUninstallJob(){</span>
+<span class="cstat-no" title="statement not covered" >        PluginUninstallJob.super_.call(this);</span>
+&nbsp;
+        //initialize
+<span class="cstat-no" title="statement not covered" >        this.setParallelLimit(1);</span>
+    };
+    util.inherits(PluginUninstallJob, pb.PluginJobRunner);
+&nbsp;
+    /**
+     * The command to that intends for the the uninstall job to run
+     * @static
+     * @readonly
+     * @property UNINSTALL_PLUGIN_COMMAND
+     * @type {String}
+     */
+    PluginUninstallJob.UNINSTALL_PLUGIN_COMMAND = 'uninstall_plugin';
+&nbsp;
+    /**
+     * Retrieves the tasks needed to contact each process in the cluster to
+     * uninstall the plugin.
+     * @method getInitiatorTasks
+     * @param {Function} cb A callback that takes two parameters: cb(Error, Object|Array)
+     */
+    PluginUninstallJob.prototype.getInitiatorTasks = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var command = {</span>
+            pluginUid: self.getPluginUid(),
+            jobId: self.getId(),
+&nbsp;
+            //we provide a progress function to update the job listing
+            progress: <span class="fstat-no" title="function not covered" >function(indexOfExecutingTask, totalTasks) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var increment = indexOfExecutingTask &gt; 0 ? 100 / totalTasks / self.getChunkOfWorkPercentage(): 0;</span>
+<span class="cstat-no" title="statement not covered" >                self.onUpdate(increment);</span>
+            }
+        };
+<span class="cstat-no" title="statement not covered" >        var tasks = [</span>
+            this.createCommandTask(PluginUninstallJob.UNINSTALL_PLUGIN_COMMAND, command)
+        ];
+<span class="cstat-no" title="statement not covered" >        cb(null, tasks);</span>
+    };
+&nbsp;
+    /**
+     * Retrieves the tasks needed to uninstall the plugin from this executing
+     * process.  The tasks are executed in series:
+     * &lt;ol&gt;
+     * &lt;li&gt;Call the plugin's onUninstall function&lt;/li&gt;
+     * &lt;li&gt;Unregister any routes and controllers&lt;/li&gt;
+     * &lt;li&gt;Remove any plugin settings&lt;/li&gt;
+     * &lt;li&gt;Remove any theme settings&lt;/li&gt;
+     * &lt;li&gt;Remove the plugin record from persistence&lt;/li&gt;
+     * &lt;li&gt;Switch active theme if needed&lt;/li&gt;
+     * &lt;li&gt;Deactivate the plugin from this process&lt;/li&gt;
+     * &lt;/ol&gt;
+     * @method getWorkerTasks
+     * @param {Function} cb A callback that takes two parameters: cb(Error, Object|Array)
+     */
+    PluginUninstallJob.prototype.getWorkerTasks = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var pluginUid = this.getPluginUid();</span>
+<span class="cstat-no" title="statement not covered" >        var tasks = [</span>
+&nbsp;
+            //call onUninstall
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                if (!pb.PluginService.isActivePlugin(pluginUid)) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.log("Skipping call to plugin's onUninstall function.  Main module was not active.");</span>
+<span class="cstat-no" title="statement not covered" >                    callback(null, true);</span>
+<span class="cstat-no" title="statement not covered" >                    return;</span>
+                }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var mm = pb.PluginService.getActiveMainModule(pluginUid);</span>
+<span class="cstat-no" title="statement not covered" >                if (util.isFunction(mm.onUninstall)) {</span>
+<span class="cstat-no" title="statement not covered" >                    self.log('Calling plugin onUnstall', pluginUid);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                    var d = domain.create();</span>
+<span class="cstat-no" title="statement not covered" >                    d.on('error', callback);</span>
+<span class="cstat-no" title="statement not covered" >                    d.run(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                        mm.onUninstall(callback);</span>
+                    });
+                }
+                else {
+<span class="cstat-no" title="statement not covered" >                    self.log('Plugin onUninstall function does not exist.  Skipping.');</span>
+<span class="cstat-no" title="statement not covered" >                    callback(null, true);</span>
+                }
+            },
+&nbsp;
+            //unregister routes
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                var routesRemoved = pb.RequestHandler.unregisterThemeRoutes(pluginUid);</span>
+<span class="cstat-no" title="statement not covered" >                self.log('Unregistered %d routes', routesRemoved);</span>
+<span class="cstat-no" title="statement not covered" >                process.nextTick(<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>callback(null, true);}</span>);</span>
+            },
+&nbsp;
+            //remove localization
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+                //TODO refactor localization to figure out how to remove only those
+                //that were overriden. For now any overriden localizations will be
+                //left until the server cycles.  This is not ideal but will suffice
+                //for most use cases.  The only affected use case is if a default
+                //label is overriden.
+<span class="cstat-no" title="statement not covered" >                process.nextTick(<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>callback(null, true);}</span>);</span>
+            },
+&nbsp;
+            //remove settings
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                self.log('Attemping to remove plugin settings');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                pb.plugins.pluginSettingsService.purge(pluginUid, <span class="fstat-no" title="function not covered" >function (err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    callback(err, !util.isError(err));</span>
+                });
+            },
+&nbsp;
+            //remove theme settings
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                self.log('Attemping to remove theme settings');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                pb.plugins.themeSettingsService.purge(pluginUid, <span class="fstat-no" title="function not covered" >function (err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    callback(err, !util.isError(err));</span>
+                });
+            },
+&nbsp;
+            //remove plugin record from "plugin" collection
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                self.log('Attemping to remove plugin from persistent storage');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                var where = {</span>
+                    uid: pluginUid
+                };
+<span class="cstat-no" title="statement not covered" >                var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >                dao.delete(where, 'plugin', <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    callback(err, !util.isError(err));</span>
+                });
+            },
+&nbsp;
+            //roll over to default theme
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                self.log('Inspecting the active theme');</span>
+&nbsp;
+                //retrieve the plugin so we can see if the value matches what we
+                //are uninstalling
+<span class="cstat-no" title="statement not covered" >                pb.settings.get('active_theme', <span class="fstat-no" title="function not covered" >function(err, activeTheme) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(err, false);</span>
+                    }
+&nbsp;
+                    //check if we need to reset the active theme
+<span class="cstat-no" title="statement not covered" >                    if (activeTheme === pluginUid) {</span>
+<span class="cstat-no" title="statement not covered" >                        self.log('Uninstalling the active theme.  Switching to pencilblue');</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                        pb.settings.set('active_theme', 'pencilblue', <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                            callback(err, result ? true : false);</span>
+                        });
+                    }
+                    else {
+<span class="cstat-no" title="statement not covered" >                        callback(null, true);</span>
+                    }
+                });
+            },
+&nbsp;
+            //remove from ACTIVE_PLUGINS//unregister services
+<span class="fstat-no" title="function not covered" >            function(callback) {</span>
+<span class="cstat-no" title="statement not covered" >                var result = pb.PluginService.deactivatePlugin(pluginUid);</span>
+<span class="cstat-no" title="statement not covered" >                process.nextTick(<span class="fstat-no" title="function not covered" >function(){<span class="cstat-no" title="statement not covered" ></span>callback(null, result);}</span>);</span>
+            }
+        ];
+<span class="cstat-no" title="statement not covered" >        cb(null, tasks);</span>
+    };
+&nbsp;
+    /**
+     * Called when the tasks have completed execution and isInitiator = FALSE. The
+     * function blindly passes the results of the tasks back to the callback.
+     * @param {Error} err The error that occurred (if any) during task execution
+     * @param {Array} results An array containing the result of each executed task
+     * @param {Function} cb A callback that provides two parameters: The first is
+     * any error that occurred (if exists) and the second is an array of Boolean
+     * values that indicate the success or failure of each task.
+     */
+    PluginUninstallJob.prototype.processWorkerResults = <span class="fstat-no" title="function not covered" >function(err, results, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        cb(err, results);</span>
+    };
+&nbsp;
+    //exports
+    return PluginUninstallJob;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../../sorter.js"></script>
+</body>
+</html>

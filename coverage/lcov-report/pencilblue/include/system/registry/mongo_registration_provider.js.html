@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/system/registry/mongo_registration_provider.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/system/registry/mongo_registration_provider.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">27.27% <small>(9 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">14.29% <small>(1 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">27.27% <small>(9 / 33)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/system/registry/</a> &#187; mongo_registration_provider.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var util = require('../../util.js');
+&nbsp;
+module.exports = function MongoRegistrationProviderModule(pb) {
+    
+    /**
+     * Implements the necessary functions in order to be able to create and manage
+     * a service registry for PB processes in the cluster.  This provider uses MongoDB
+     * as the storage.  In addition, it leverages MongoDB's TTL collections.  The
+     * reaper for mongo runs every 60 seconds.  It is possible for dead processes to
+     * appear in the status list for up to that magical 60 second threshold.  The
+     * name of the collection used to store all statuses is determined by the
+     * configuration property: "registry.key".
+     * @class MongoRegistrationProvider
+     * @constructor
+     */
+<span class="fstat-no" title="function not covered" >    function MongoRegistrationProvider(){</span>}
+&nbsp;
+    /**
+     * Retrieves the entire cluster status as an array of status objects.  The '_id'
+     * property uniquely identifies each process/node.
+     * @method get
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Array)
+     */
+    MongoRegistrationProvider.prototype.get = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.q(pb.config.registry.key, {where: pb.DAO.ANYWHERE}, cb);</span>
+    };
+&nbsp;
+    /**
+     * Updates the status of a single node.
+     * @method set
+     * @param {String} id The unique identifier for the process/node
+     * @param {Object} status The status information
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    MongoRegistrationProvider.prototype.set = <span class="fstat-no" title="function not covered" >function(id, status, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!util.isObject(status)) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('The status parameter must be a valid object'));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        status[pb.DAO.getIdField()] = id;</span>
+<span class="cstat-no" title="statement not covered" >        status.object_type = pb.config.registry.key;</span>
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.save(status, cb);</span>
+    };
+&nbsp;
+    /**
+     * Purges all statuses from storage.
+     * @method flush
+     * @param {Function} cb A callback that provides two parameters: cb(Error, [RESULT])
+     */
+    MongoRegistrationProvider.prototype.flush = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.delete(pb.DAO.ANYWHERE, pb.config.registry.key, cb);</span>
+    };
+&nbsp;
+    /**
+     * This function should only be called once at startup.  It is responsible for
+     * setting up the collection and ensuring that the TTL index is configured
+     * correctly based on the the executing processes configuration.  &lt;b&gt;NOTE:&lt;/b&gt;
+     * The collection only supports one TTL value. The last process to startup and
+     * configure the index will win.  Please be careful to ensure that all PB
+     * processes/nodes have the same registry.update_interval value.
+     * @method init
+     * @param {Function} cb A callback that takes two parameters. cb(Error, [RESULT])
+     */
+    MongoRegistrationProvider.prototype.init = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+&nbsp;
+        //prepare index values
+<span class="cstat-no" title="statement not covered" >        var expiry    = Math.floor(pb.config.registry.update_interval / util.TIME.MILLIS_PER_SEC);</span>
+<span class="cstat-no" title="statement not covered" >        var procedure = {</span>
+            collection: pb.config.registry.key,
+            spec: { last_modified: 1 },
+            options: { expireAfterSeconds: expiry }
+        }
+&nbsp;
+        //ensure an index exists.  According to the MongoDB documentation ensure
+        //index cannot modify a TTL value once it is created.  Therefore, we have
+        //to ensure that the index exists and then verify that the expiry matches.  
+        //When it doesn't match we must create a system lock, drop the index, and 
+        //recreate it.  Due to the permissions levels of some mongo hosting 
+        //providers the collMod command cannot be used.
+<span class="cstat-no" title="statement not covered" >        var TTLIndexHelper = require('../../dao/mongo/ttl_index_helper.js')(pb);</span>
+<span class="cstat-no" title="statement not covered" >        var helper = new TTLIndexHelper();</span>
+<span class="cstat-no" title="statement not covered" >        helper.ensureIndex(procedure, cb);</span>
+    };
+&nbsp;
+    /**
+     * Should be called during shutdown.  It is responsible for removing the
+     * process/node from the registry.
+     * @static
+     * @method shutdown
+     * @param {String} id The unique identifier for the node/process
+     * @param {Function} cb A callback that takes two parameters: cb(Error, [RESULT])
+     */
+    MongoRegistrationProvider.prototype.shutdown = <span class="fstat-no" title="function not covered" >function(id, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('MongoRegistrationProvider: Shutting down...');</span>
+&nbsp;
+        //verify an ID was passed
+<span class="cstat-no" title="statement not covered" >        if (!id) {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.error('MongoRegistrationProvider: A valid ID is needed in order to properly shutdown');</span>
+<span class="cstat-no" title="statement not covered" >            cb(null, false);</span>
+        }
+&nbsp;
+        //ID is always a string so we don't use pb.DAO.getIdWhere(id)
+<span class="cstat-no" title="statement not covered" >        var where = {};</span>
+<span class="cstat-no" title="statement not covered" >        where[pb.DAO.getIdField()] = id;</span>
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.delete(where, pb.config.registry.key, cb);</span>
+    };
+&nbsp;
+    return MongoRegistrationProvider;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../sorter.js"></script>
+</body>
+</html>

@@ -1,0 +1,1035 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for pencilblue/include/system/command/mongo_command_broker.js</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="../../../../prettify.css">
+
+    <link rel="stylesheet" href="../../../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">pencilblue/include/system/command/mongo_command_broker.js</span></h1>
+    <h2>
+        
+        Statements: <span class="metric">18.87% <small>(20 / 106)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Branches: <span class="metric">0% <small>(0 / 49)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Functions: <span class="metric">3.33% <small>(1 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        
+        Lines: <span class="metric">18.87% <small>(20 / 106)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../../../index.html">All files</a> &#187; <a href="index.html">pencilblue/include/system/command/</a> &#187; mongo_command_broker.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/*
+    Copyright (C) 2015  PencilBlue, LLC
+&nbsp;
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+&nbsp;
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+&nbsp;
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+&nbsp;
+//dependencies
+var util    = require('../../util.js');
+var process = require('process');
+var domain  = require('domain');
+var async   = require('async');
+&nbsp;
+module.exports = function MongoCommandBrokerModule(pb) {
+&nbsp;
+    /**
+     * Brokers messages using Redis as the medium.  The implementation follows a
+     * publish/subscribe model that allows for listening for changes based on a a
+     * specified channel.
+     * @class MongoCommandBroker
+     * @constructor
+     */
+<span class="fstat-no" title="function not covered" >    function MongoCommandBroker(){</span>
+&nbsp;
+        /**
+         * The cursor that trails the collection looking for new items
+         * @property cursor
+         * @type {Cursor}
+         */
+<span class="cstat-no" title="statement not covered" >        this.cursor = null;</span>
+    };
+&nbsp;
+    //statics
+    /**
+     * The hash of handlers for each channel subscribed to
+     * @private
+     * @static
+     * @property SUBSCRIBERS
+     * @type {Object}
+     */
+    var SUBSCRIBERS = {};
+&nbsp;
+    /**
+     * The collection that stores the commands
+     * @private
+     * @static
+     * @property COMMAND_Q_COLL
+     * @type {String}
+     */
+    var COMMAND_Q_COLL = 'command_queue';
+&nbsp;
+    /**
+     * The maximum size, in bytes, of the collection
+     * @property DEFAULT_MAX_SIZE
+     * @type {Integer}
+     */
+    var DEFAULT_MAX_SIZE = 10000;
+&nbsp;
+    /**
+     * Initializes the broker by creating the connections to Redis and registering
+     * for the message event.
+     * @method init
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Boolean)
+     */
+    MongoCommandBroker.prototype.init = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        this._verifyEntity(<span class="fstat-no" title="function not covered" >function(err, isInitialized) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (isInitialized) {</span>
+<span class="cstat-no" title="statement not covered" >                pb.log.debug('MongoCommandBroker: Initialized.');</span>
+            }
+<span class="cstat-no" title="statement not covered" >            cb(err, isInitialized);</span>
+        });
+    };
+&nbsp;
+    MongoCommandBroker.prototype._verifyEntity = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+&nbsp;
+        //check if the collection already exists
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.entityExists(COMMAND_Q_COLL, <span class="fstat-no" title="function not covered" >function(err, exists) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err);</span>
+            }
+&nbsp;
+            //when it exists we're done.  We'll assume that it was capped 
+            //appropriately &amp; that it was seeded
+<span class="cstat-no" title="statement not covered" >            if (exists) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(null, true);</span>
+            }
+&nbsp;
+            //create the capped collection needed to store the commands
+<span class="cstat-no" title="statement not covered" >            var options = {</span>
+                capped: true,
+                size: pb.config.command.size || DEFAULT_MAX_SIZE
+            };
+<span class="cstat-no" title="statement not covered" >            dao.createEntity(COMMAND_Q_COLL, options, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (util.isError(err) || !result) {</span>
+<span class="cstat-no" title="statement not covered" >                    return cb(err, false);</span>
+                }
+&nbsp;
+                //Unfortunately, it turns out that MongoDB won’t keep a tailable 
+                //cursor open if the collection is empty, so let’s also create a 
+                //blank document to “prime” the collection.
+<span class="cstat-no" title="statement not covered" >                var primerCommand = {</span>
+                    type: "primer"
+                };
+<span class="cstat-no" title="statement not covered" >                self.publish('primer', primerCommand, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    cb(err, result ? true : false);</span>
+                });
+            });
+        });
+    };
+&nbsp;
+    /**
+     * Shuts down the broker by closing the open connections to Redis.
+     * @method shutdown
+     * @param {Function} cb A callback that provides two parameters: cb(Error, Boolean)
+     */
+    MongoCommandBroker.prototype.shutdown = <span class="fstat-no" title="function not covered" >function(cb) {</span>
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('MongoCommandBroker: Shutting down...');</span>
+        //TODO implement
+<span class="cstat-no" title="statement not covered" >        cb(null, true);</span>
+    };
+&nbsp;
+    /**
+     * Called when a member of the cluster has published a command.  The function
+     * inspects that it has a handler for the channel then delegates the command
+     * back to the handler.
+     * @method onCommandReceived
+     * @param {String} channel The channel the message was pushed to
+     * @param {String} commandStr The message that was published
+     */
+    MongoCommandBroker.prototype.onCommandReceived = <span class="fstat-no" title="function not covered" >function(channel, command) {</span>
+<span class="cstat-no" title="statement not covered" >        if (pb.log.isSilly()) {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.silly('MongoCommandBroker: Command recieved [%s]%s', channel, JSON.stringify(command));</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (SUBSCRIBERS[channel]) {</span>
+<span class="cstat-no" title="statement not covered" >            try{</span>
+<span class="cstat-no" title="statement not covered" >                SUBSCRIBERS[channel](channel, command);</span>
+            }
+            catch(err){
+<span class="cstat-no" title="statement not covered" >                pb.log.error('MongoCommandHandler: An error occurred while attempting to handoff the command [%s]%s. %s', channel, JSON.stringify(command), err.stack);</span>
+            }
+        }
+        else {
+<span class="cstat-no" title="statement not covered" >            pb.log.silly('MongoCommandBroker: A message was received for channel [%s] but no handler was available to accept it. This is most likely normal', channel);</span>
+        }
+    };
+&nbsp;
+    /**
+     * Sends a message to the specified channel
+     * @method publish
+     * @param {String} channel The channel to send the message to
+     * @param {Object} command The command to send to the cluster
+     * @param {Function} cb A callback that takes two parameters: cb(Error, 1 on success/FALSE on failure)
+     */
+    MongoCommandBroker.prototype.publish = <span class="fstat-no" title="function not covered" >function(channel, command, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!util.isObject(command)) {</span>
+<span class="cstat-no" title="statement not covered" >            throw new Error('The channel string and command object are required!');</span>
+        }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >        if (pb.log.isSilly()) {</span>
+<span class="cstat-no" title="statement not covered" >            pb.log.silly('MongoCommandBroker: Sending command [%s]%s', channel, JSON.stringify(command));</span>
+        }
+&nbsp;
+        //send command
+<span class="cstat-no" title="statement not covered" >        command.object_type = COMMAND_Q_COLL;</span>
+<span class="cstat-no" title="statement not covered" >        command.channel     = channel;</span>
+<span class="cstat-no" title="statement not covered" >        var dao = new pb.DAO();</span>
+<span class="cstat-no" title="statement not covered" >        dao.save(command, <span class="fstat-no" title="function not covered" >function(err, result) {</span></span>
+<span class="cstat-no" title="statement not covered" >            cb(err, result ? true : false);</span>
+        });
+    };
+&nbsp;
+    /**
+     * Registers a handler for messages on the specified channel.
+     * @method subscribe
+     * @param {String} channel The channel to listen for messages on
+     * @param {Function} onCommandReceived A handler function that takes two
+     * arguments: onCommandReceived(channel, message) where channel is a string and
+     * message is an object.
+     * @param {Function} cb A callback that takes two parameters: cb(Error, [RESULT])
+     */
+    MongoCommandBroker.prototype.subscribe = <span class="fstat-no" title="function not covered" >function(channel, onCommandReceived, cb) {</span>
+<span class="cstat-no" title="statement not covered" >        if (!pb.validation.validateNonEmptyStr(channel, true) || !util.isFunction(onCommandReceived)) {</span>
+<span class="cstat-no" title="statement not covered" >            cb(new Error('A valid channel string and handler function is required'));</span>
+<span class="cstat-no" title="statement not covered" >            return;</span>
+        }
+&nbsp;
+        //setup the one time subscribe callback
+<span class="cstat-no" title="statement not covered" >        pb.log.debug('MongoCommandBroker: Subcribing to channel [%s]', channel);</span>
+&nbsp;
+&nbsp;
+        //get a reference to the collection
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+<span class="cstat-no" title="statement not covered" >        var db = pb.dbm.getDb(<span class="fstat-no" title="function not covered" >function(err, db) {</span></span>
+<span class="cstat-no" title="statement not covered" >            if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err);</span>
+            }
+            
+<span class="cstat-no" title="statement not covered" >            db.collection(COMMAND_Q_COLL, <span class="fstat-no" title="function not covered" >function(err, collection) {</span></span>
+<span class="cstat-no" title="statement not covered" >                if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                    return cb(err);</span>
+                }
+&nbsp;
+&nbsp;
+                //wrap it all up in a container so we can mitigate the crises that 
+                //will inevitably ensue from dropped or timed out cursor connections.  
+                //In addition, we put failure tolerances in place so that we can 
+                //attempt to reconnect.
+<span class="cstat-no" title="statement not covered" >                var eot = new pb.ErrorsOverTime(5, 3000, 'MongoCommandBroker: ');</span>
+<span class="cstat-no" title="statement not covered" >                var d   = domain.create();</span>
+<span class="cstat-no" title="statement not covered" >                d.on('error', <span class="fstat-no" title="function not covered" >function(err) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    pb.log.error('MongoCommandBroker: An error occurred while waiting for commands: %s', err.stack || err.message);</span>
+<span class="cstat-no" title="statement not covered" >                    pb.log.debug('MongoCommandBroker: Reconnecting to %s collection', COMMAND_Q_COLL);</span>
+&nbsp;
+                    //ensure we are still in bounds
+<span class="cstat-no" title="statement not covered" >                    eot.throwIfOutOfBounds(err);</span>
+&nbsp;
+                    //when we are still within the acceptable fault tolerance try 
+                    //to reconnect
+<span class="cstat-no" title="statement not covered" >                    loop();</span>
+                });
+<span class="cstat-no" title="statement not covered" >                d.run(<span class="fstat-no" title="function not covered" >function() {</span></span>
+                    //process.nextTick(loop);
+<span class="cstat-no" title="statement not covered" >                    self.listen(null, collection);</span>
+                });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >                SUBSCRIBERS[channel] = onCommandReceived;</span>
+<span class="cstat-no" title="statement not covered" >                cb(null, true);</span>
+            });
+        });
+    };
+    
+    MongoCommandBroker.prototype.listen = <span class="fstat-no" title="function not covered" >function(latest, collection) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+        
+<span class="cstat-no" title="statement not covered" >        this.latest(latest, collection, <span class="fstat-no" title="function not covered" >function(err, latest) {</span></span>
+//            if (util.isError(err)) {
+//                pb.log.error('MongoBroker: %s', err.stack);
+//                throw err;
+//            }
+            
+<span class="cstat-no" title="statement not covered" >            self._listen(latest, collection);</span>
+        });
+    };
+    
+    MongoCommandBroker.prototype.latest = <span class="fstat-no" title="function not covered" >function(latest, collection, cb) {</span>
+&nbsp;
+        
+<span class="cstat-no" title="statement not covered" >        collection.find(latest ? { created: {$gt: new Date() }} : null)</span>
+        .sort({ $natural: -1 })
+        .limit(1)
+        .nextObject(<span class="fstat-no" title="function not covered" >function (err, doc) {</span>
+<span class="cstat-no" title="statement not covered" >            if (err || doc) {</span>
+<span class="cstat-no" title="statement not covered" >                return cb(err, doc);</span>
+            }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >            collection.insert({ dummy: true, created: new Date() }, { dummy: true, created: new Date() }, <span class="fstat-no" title="function not covered" >function (err, docs) {</span></span>
+<span class="cstat-no" title="statement not covered" >                cb(err, docs[0]);</span>
+            });
+        });
+    };
+                        
+    MongoCommandBroker.prototype._listen = <span class="fstat-no" title="function not covered" >function(latest, collection) {</span>
+<span class="cstat-no" title="statement not covered" >        var self = this;</span>
+        
+        //enter listen loop
+<span class="cstat-no" title="statement not covered" >        async.whilst(</span>
+<span class="fstat-no" title="function not covered" >            function() {</span> <span class="cstat-no" title="statement not covered" >return true; </span>},
+            getListener(collection, self, latest),
+<span class="fstat-no" title="function not covered" >            function(err) {</span>
+<span class="cstat-no" title="statement not covered" >                if (util.isError(err)) {</span>
+<span class="cstat-no" title="statement not covered" >                    pb.log.error('MongoCommandBroker: %s\n%s', err.message, err.stack);</span>
+                }
+<span class="cstat-no" title="statement not covered" >                process.nextTick(<span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >                    self.listen(latest, collection);</span>
+                });
+            }
+        );
+    };
+    
+<span class="fstat-no" title="function not covered" >    function getListener(collection, instance, latest) {</span>
+<span class="cstat-no" title="statement not covered" >        return <span class="fstat-no" title="function not covered" >function(callback) {</span></span>
+            
+<span class="cstat-no" title="statement not covered" >            var query = { created: { $gte: new Date() }};</span>
+<span class="cstat-no" title="statement not covered" >            var options = { tailable: true, awaitdata: true, numberOfRetries: Number.MAX_VALUE, tailableRetryInterval: 200 };</span>
+<span class="cstat-no" title="statement not covered" >            var cursor = collection.find(query, options);</span>
+            
+<span class="cstat-no" title="statement not covered" >            var next = <span class="fstat-no" title="function not covered" >function() {</span></span>
+                
+<span class="cstat-no" title="statement not covered" >                cursor.nextObject(<span class="fstat-no" title="function not covered" >function(err, command) {</span></span>
+<span class="cstat-no" title="statement not covered" >                    if (util.isError(err) || cursor.isClosed() || !util.isObject(command)) {</span>
+<span class="cstat-no" title="statement not covered" >                        return callback(err);</span>
+                    }
+                    else <span class="cstat-no" title="statement not covered" >if (!command.dummy) {</span>
+                        //dispatch command
+<span class="cstat-no" title="statement not covered" >                        instance.onCommandReceived(command.channel, command);</span>
+                    }
+                    else {
+                        /* no op */
+                    }
+                    
+                    //trigger wait for next object
+<span class="cstat-no" title="statement not covered" >                    process.nextTick(next);</span>
+                });
+            };
+            
+<span class="cstat-no" title="statement not covered" >            process.nextTick(next);</span>
+        };
+    };
+&nbsp;
+    //exports
+    return MongoCommandBroker;
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 17:49:20 GMT-0400 (EDT)</div>
+</div>
+
+<script src="../../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+
+<script src="../../../../sorter.js"></script>
+</body>
+</html>
