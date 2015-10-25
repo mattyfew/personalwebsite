@@ -19,7 +19,7 @@
   left: 0; }
 
 #nav-links {
-  visibility: none; }
+  display: hide; }
 
 .hamburger-slim {
   /*	background: transparent;*/

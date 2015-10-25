@@ -1,13 +1,11 @@
-(function(){
+$(document).ready(function(){
+	var $navLinks = $('#nav-links')
+	var $hamburger = $('.hamburger-slim')
 	
-	var $hamburger = document.getElementById("hamburger-slim");
-	var $navBar = document.getElementById("navigation-bar");
-	var navLinks = document.getElementById("nav-links");
+	$navLinks.hide()
 	
 	$hamburger.click(function(){
-		navLinks.css("display: show;")
-	})
-	
-	
+		$('#nav-links').toggle();
+	});
 	
 })
