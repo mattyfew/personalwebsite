@@ -1,0 +1,53 @@
+#main-header {
+  margin: auto;
+  text-align: center; }
+
+#profile-picture {
+  max-height: 400px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+
+/* NAVIGATION BAR */
+#navigation-bar {
+  vertical-align: baseline;
+  height: 100%;
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+#nav-links {
+  visibility: none; }
+
+.hamburger-slim {
+  /*	background: transparent;*/
+  margin: 60px auto 40px;
+  position: relative;
+  height: 30px;
+  width: 50px; }
+  .hamburger-slim:before, .hamburger-slim:after {
+    background: #fff;
+    backface-visibility: hidden;
+    content: "";
+    height: 2px;
+    left: 0;
+    transition: 0.75s;
+    width: 50px; }
+  .hamburger-slim:before {
+    box-shadow: #fff 0 14px 0 0;
+    position: absolute;
+    top: 0; }
+  .hamburger-slim:after {
+    position: absolute;
+    top: 28px; }
+  .hamburger-slim:hover:before {
+    box-shadow: transparent 0 0 0 0;
+    top: 15px;
+    transform: rotate(225deg); }
+  .hamburger-slim:hover:after {
+    top: 15px;
+    transform: rotate(315deg); }
+
+/*# sourceMappingURL=personalwebsite.css.map */
