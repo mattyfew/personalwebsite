@@ -1,4 +1,14 @@
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #FDFDFD;
+}
+
+h1,h2,h3,h4,h5 {
+	font-family: 'Open Sans', sans-serif;
+}
+
 #right-container {
+	background-color: #b5b5b7;
 }
 
 #main-header {
@@ -19,15 +29,19 @@
 #navigation-bar {
 	vertical-align: baseline;
 	height: 100%;
-	background-color: blue;
-	position: fixed;
+	background-color: #252839;
+	position: absolute;
 	top: 0;
 	left: 0;
 }
 
 #nav-links {
-	display: hide;
+	a {
+		font-size: 22px;
+	}
 }
+
+
 
 .hamburger-slim {
 	/*	background: transparent;*/
@@ -68,3 +82,14 @@
 		}
 	}
 }
+
+/* ABOUT PAGE */
+
+#about-head {
+	position: relative;
+}
+
+#about-skills-header {
+	text-align: center;
+}
+

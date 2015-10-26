@@ -8,29 +8,19 @@
 	<link rel="stylesheet" href="stylesheets/animate.css">
 	<link rel="stylesheet" href="stylesheets/foundation.min.css">
 	<link rel="stylesheet" href="stylesheets/personalwebsite.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-
-	<div class="row">
-		<div id="navigation-bar" class="small-2 columns">
-			<div class="hamburger-slim"></div>
-			<ul id="nav-links">
-				<li>About</li>
-				<li>Portfolio</li>
-				<li>Contact</li>
-				<li>Blog</li>
-			</ul>
-		</div> 
-		<!--	closes nav div	-->
-
-		<div id="right-container" class="small-10 columns">
-				<h1 id="main-header">WELCOME</h1>
-				<img id="profile-picture" class="animated shake" src="img/my_face.jpg" alt="my face">
-				<p>Hi Everyone! Thanks for visiting my webpage! I'm a full stack developer with plenty of experience with web development. I also play guitar and write music too! Also if you have any need for an Audio Video Technician, I can also do that too!</p>
-			</div>
-			
+	<% include nav.html.ejs %>
+		
+	<div id="right-container" class="small-10 columns">
+		<h1 id="main-header">WELCOME</h1>
+		<img id="profile-picture" class="animated shake" src="img/my_face.jpg" alt="my face">
+		<p>Hi Everyone! Thanks for visiting my webpage! I'm a full stack developer with plenty of experience with web development. I also play guitar and write music too! Also if you have any need for an Audio Video Technician, I can also do that too!</p>
 	</div>
+			
+	</div> <!--	closes nav div	-->
 
 	
 	

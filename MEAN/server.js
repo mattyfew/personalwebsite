@@ -13,6 +13,11 @@ app.set('view_engine', 'ejs');
 app.use(express.static('public'));
 
 
+
+app.get('/about', function(req,res){
+	res.render('about.html.ejs')
+})
+
 app.get('/', function(req,res){
 	res.render('index.html.ejs')
 	
