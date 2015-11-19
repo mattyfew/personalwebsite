@@ -1,95 +1,149 @@
+* {margin: 0; padding: 0; outline: 0;}
+
 body {
+	font-family: Helvetica, Arial, Verdana, sans-serif;
+	color: #e5e5e5;
+	font-size: 12px;
+	background:#bfbfbf;
+}
+
+h1, h2 {
 	font-family: 'Open Sans', sans-serif;
-	background-color: #FDFDFD;
+	font-weight: 300;
+	margin:0 0 15px 0;
 }
 
-h1,h2,h3,h4,h5 {
+h1 {
+	font-size: 36px;
+	letter-spacing: -1px;
+	line-height: 100%;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+p {
+	margin: 0 0 15px 0;
+}
+
+a {
+	color: #3e3e3e;
+}
+
+.clear {
+	clear: both;
+}
+.wrap {
+	width: 100%;
+	max-width: 1600px;
+	min-width: 960px;
+	z-index: 10;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.section {
+	width: 100%;
+	max-width: 1600px;
+	min-width: 960px;
+	z-index: 10;
+	position: relative;
+	margin: 0 auto;
+	padding: 0 0 20px 0;
+	height: 500px;
+}
+
+.inner {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+	min-height: 50px;
+	padding: 30px 0;
+	font-size: 18px;
 	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
 
-#right-container {
-	background-color: #b5b5b7;
+.inner:after {
+	content: "";
+	display: table;
+	clear: both;
 }
 
-#main-header {
-	margin: auto;
-	text-align: center;
+.subMenu {
+	min-height: 50px;
+	z-index: 1000;
+	width: 100%;
+	background: #0977bc;
 }
 
-#profile-picture {
-	max-height: 400px;
-	max-width: 400px;
-	margin-left: auto;
-	margin-right: auto;
+.subMenu .inner {
+	font-weight: 400;
+	margin: 0 auto;
+	padding: 0
+}
+
+.subNavBtn {
 	display: block;
-}
-
-/* NAVIGATION BAR */
-
-#navigation-bar {
-	vertical-align: baseline;
-	height: 100%;
-	background-color: #252839;
-	position: absolute;
-	top: 0;
-	left: 0;
-}
-
-#nav-links {
-	a {
-		font-size: 22px;
-	}
-}
-
-
-
-.hamburger-slim {
-	/*	background: transparent;*/
-	margin: 60px auto 40px;
-	position: relative;
-	height: 30px;
-	width: 50px;
-
-	&:before,
-	&:after {
-		background: #fff;
-		backface-visibility: hidden;
-		content: "";
-		height: 2px;
-		left: 0;
-		transition: 0.75s;
-		width: 50px;
-	}
-	&:before {
-		box-shadow: #fff 0 14px 0 0;
-		position: absolute;
-		top: 0;
-	}
-	&:after {
-		position: absolute;
-		top: 28px;
-	}
-	&:hover {
-
-		&:before {
-			box-shadow: transparent 0 0 0 0;
-			top: 15px;
-			transform: rotate(225deg);
-		}
-		&:after {  
-			top: 15px;
-			transform: rotate(315deg);
-		}
-	}
-}
-
-/* ABOUT PAGE */
-
-#about-head {
-	position: relative;
-}
-
-#about-skills-header {
+	height: 50px;
+	width: 14%;
+	float: left;
+	margin: 0px 0px 0 0;
+	text-decoration: none;
+	font-size: 14px;
+	padding: 15px 2% 0 2%;
 	text-align: center;
+	color: #fff;
+}
+.subMenu a:hover {
+	background: #1783c7;
 }
 
+.active {
+	background: #25aae1;
+}
+.end {
+	margin: 0;
+}
+
+
+/* SECTIONS */
+.sTop {
+	min-height: 130px;
+	background:#fff;
+	color:#3d3d3d;
+	padding: 50px 0;
+	height: 300px;
+}
+
+.about {
+	background:#184764;
+	color:#fff;
+}
+
+.skills {
+	background: #313131;
+}
+
+.skills a {
+	color: #fff;
+}
+
+.portfolio {
+	background: #1b83b3;
+}
+
+.contact {
+	background: #5aa3c4;
+}
+
+.hireme {
+	background: #bce1f1;
+	color: #3d3d3d;
+}
+
+.s6 {
+	background: #161616;
+}
