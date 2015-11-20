@@ -9,7 +9,8 @@ body {
   font-size: 12px;
   background: #bfbfbf; }
 
-h1, h2 {
+h1,
+h2 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   margin: 0 0 15px 0; }
@@ -27,6 +28,70 @@ p {
 
 a {
   color: #3e3e3e; }
+
+#nav-selector {
+  background-color: white; }
+
+#fp-nav ul li a span,
+.fp-slidesNav ul li a span {
+  background: white;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px; }
+
+#fp-nav ul li a.active span,
+.fp-slidesNav ul li a.active span,
+#fp-nav ul li:hover a.active span,
+.fp-slidesNav ul li:hover a.active span {
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  background: white;
+  box-sizing: border-box;
+  border: 1px solid #24221F; }
+
+#main-picture {
+  max-height: 400px;
+  position: absolute;
+  bottom: 0px;
+  right: 10px; }
+
+#slide-1-wrapper {
+  position: relative; }
+
+ul {
+  list-style-type: none; }
+
+#skills-header {
+  text-align: center;
+  padding-bottom: 20px; }
+
+.skills h3 {
+  text-align: center;
+  padding-top: 9px;
+  padding-bottom: 6px; }
+.skills li {
+  text-align: center;
+  padding-bottom: 7px; }
+
+.slide {
+  text-align: center;
+  font-size: 5em;
+  color: white; }
+
+.slide:hover {
+  color: yellow; }
+
+#portfolio-header {
+  text-align: center; }
+
+#email-button {
+  margin-top: 30px;
+  border-radius: 5px; }
+
+#contact-inner {
+  text-align: center;
+  width: 100%; }
 
 .clear {
   clear: both; }
@@ -90,9 +155,6 @@ a {
 
 .subMenu a:hover {
   background: #1783c7; }
-
-.active {
-  background: #25aae1; }
 
 .end {
   margin: 0; }

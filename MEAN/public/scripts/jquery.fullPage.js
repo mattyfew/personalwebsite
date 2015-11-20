@@ -2089,7 +2089,7 @@
             nav.addClass(options.slidesNavPosition);
 
             for(var i=0; i< numSlides; i++){
-                nav.find('ul').append('<li><a href="#"><span></span></a></li>');
+                nav.find('ul').append('<li><a href="#"><span id="nav-selector"></span></a></li>');
             }
 
             //centering it

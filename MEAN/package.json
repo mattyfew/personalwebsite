@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "fullpage.js": "^2.7.4"
+  },
+  "devDependencies": {
+    "motion-ui": "^1.1.0"
   }
 }
