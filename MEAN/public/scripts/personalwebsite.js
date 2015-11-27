@@ -23,10 +23,9 @@ $(document).ready(function() {
 		responsiveWidth: 800,
 		afterResize: function () {
 			if ($(window).width() < 800) {
-				$.fn.fullpage.setAllowScrolling(false);
-				$.fn.fullpage.setKeyboardScrolling(false);
-				
-//				$('#fullpage').fullpage({scrollOverflow:true});
+				//$.fn.fullpage.setAllowScrolling(false);
+				//$.fn.fullpage.setKeyboardScrolling(false);
+				//$('#fullpage').fullpage({scrollOverflow:true});
 				var verticalNav = document.getElementById("fp-nav");
 				$(verticalNav).hide();
 			}

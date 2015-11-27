@@ -8,11 +8,8 @@ body {
 	color: #e5e5e5;
 	font-size: 12px;
 	background: #bfbfbf;
-	overflow: hidden !important
 }
-html {
-	overflow: hidden !important
-}
+html {}
 h1,
 h2 {
 	font-family: 'Open Sans', sans-serif;
@@ -53,7 +50,7 @@ a {
 	margin: -8px 0 0 -8px;
 	background: white;
 	box-sizing: border-box;
-	border: 1px solid #24221F;
+	border: 1px solid white;
 }
 //HOME SLIDE
 #first-section {
@@ -61,7 +58,8 @@ a {
 }
 #slide-1-wrapper {}
 #first-section-row {
-	position: relative
+	position: relative;
+	margin-left: 15px;
 }
 #main-picture-wrapper {
 	position: relative;
@@ -75,43 +73,6 @@ a {
 	right: 0;
 	bottom: 0px;
 	margin: auto;
-}
-@media screen and (max-width: 500px) {
-	#main-picture {
-		position: absolute;
-		top: 0px;
-		left: 0;
-		right: 0;
-		bottom: 0px;
-		margin: auto;
-	}
-	#slide-1-wrapper {
-		position: absolute;
-		top: 0px;
-		bottom: 440px;
-		padding-bottom: 15px;
-		margin: auto;
-		min-height: 100px
-	}
-	#about-wrapper {
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	#skills-header {
-		padding-top: 40px
-	}
-	.skills h3 {
-		font-size: 3em;
-		text-decoration: underline
-	}
-	.wow {
-		visibility: visible !important;
-		-webkit-animation: none !important;
-		-moz-animation: none !important;
-		-o-animation: none !important;
-		-ms-animation: none !important;
-		animation: none !important;
-	}
 }
 //ABOUT ME SLIDE
 #about-wrapper {
@@ -138,32 +99,61 @@ ul {
 		text-align: center;
 		padding-bottom: 7px;
 	}
-	;
-	.slide {
-		font-size: 1.5em;
-	}
 }
 //PORTFOLIO SLIDE
 .slide {
 	text-align: center;
-	font-size: 3em;
+	padding-left: 140px;
+	font-size: 5em;
 	color: white;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	
+	h1 {
+//		font-size: 1.2em;
+	}
+	a {
+		font-size: 30px; 
+	}
 }
 .slide:hover {
 	color: yellow;
 }
 .slide-wrapper a {
 	color: aliceblue;
-	font-size: .5em
-}
-#portfolio-header {
-	text-align: center;
-	padding-top: 30px;
-	padding-bottom: 20px;
+
 }
 .slide-wrapper {
-	width: 100%
+	width: auto;
 }
+#portfolio-wrapper {
+	position: relative;
+	text-align: center;
+	padding-top: 0;
+	padding-bottom: 20px;
+}
+#portfolio-header {
+	position: absolute;
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 0;
+	margin-bottom: 0;
+	left: 0;
+	right: 0;
+	width: auto;
+	h1 {
+		font-size: 3em;
+	}
+}
+.fp-slidesContainer {}
+.fp-prev {
+	left: 50px !important
+}
+//.fp-next {
+//	right: 60px !important
+//}
 //CONTACT SLIDE
 #email-button {
 	margin-top: 30px;
@@ -222,21 +212,21 @@ ul {
 	margin: 0 auto;
 	padding: 0
 }
-.subNavBtn {
-	display: block;
-	height: 50px;
-	width: 14%;
-	float: left;
-	margin: 0px 0px 0 0;
-	text-decoration: none;
-	font-size: 14px;
-	padding: 15px 2% 0 2%;
-	text-align: center;
-	color: #fff;
-}
-.subMenu a:hover {
-	background: #1783c7;
-}
+//.subNavBtn {
+//	display: block;
+//	height: 50px;
+//	width: 14%;
+//	float: left;
+//	margin: 0px 0px 0 0;
+//	text-decoration: none;
+//	font-size: 14px;
+//	padding: 15px 2% 0 2%;
+//	text-align: center;
+//	color: #fff;
+//}
+//.subMenu a:hover {
+//	background: #1783c7;
+//}
 .end {
 	margin: 0;
 }
@@ -276,8 +266,7 @@ ul {
 //ANIMATIONS
 #main-picture-wrapper,
 #slide-1-wrapper {
-	-webkit-animation-duration: 3s;
-	
+	-webkit-animation-duration: 1s;
 	#about-header {
 		-webkit-animation-duration: 3s;
 		-webkit-animation-delay: 1s;
@@ -293,5 +282,86 @@ ul {
 	#about-p2 {
 		-webkit-animation-duration: 6s;
 		-webkit-animation-delay: 18s;
+	}
+}
+//MEDIA QUERIES!!!
+@media screen and (max-width: 500px) {
+	#main-picture {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		right: 0;
+		bottom: 0px;
+		margin: auto;
+		padding-top: 10px;
+	}
+	#slide-1-wrapper {
+		position: absolute;
+		top: 0px;
+		bottom: 440px;
+		padding-bottom: 15px;
+		margin: auto;
+		min-height: 100px
+	}
+	#about-wrapper {
+		padding-left: 5px;
+		padding-right: 5px;
+		margin-left: 15px;
+	}
+	#skills-header {
+		padding-top: 40px
+	}
+	.skills h3 {
+		font-size: 3em;
+		text-decoration: underline
+	}
+	.wow {
+		visibility: visible !important;
+		-webkit-animation: none !important;
+		-moz-animation: none !important;
+		-o-animation: none !important;
+		-ms-animation: none !important;
+		animation: none !important;
+	}
+	.fp-prev {
+		left: 10px !important
+	}
+	.fp-next {
+		right: 10px !important
+	}
+	#contact-inner {
+		padding: 0 5px 0 5px;
+	}
+	#portfolio-wrapper {
+		padding: 0;
+		text-align: center
+	}
+	#portfolio-header {
+		width: 100%;
+		position: absolute;
+		margin-left: 50%;
+		right: 7px
+	}
+	.slide {
+		padding-left: 65px;
+		
+		h1 {
+			font-size: .3em;
+		}
+		a {
+			font-size: 40px;
+			
+		}
+	}
+}
+
+@media screen and (max-width: 814px) {
+	.inner {
+		padding-left: 0;
+		padding-right: 0;
+		right: 0;
+	}
+	.slide-wrapper h1 {
+		font-size: .45em;
 	}
 }
