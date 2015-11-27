@@ -56,7 +56,14 @@ a {
 #first-section {
 	padding-top: 0;
 }
-#slide-1-wrapper {}
+#slide-1-wrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin-left: 30px;
+}
 #first-section-row {
 	position: relative;
 	margin-left: 15px;
