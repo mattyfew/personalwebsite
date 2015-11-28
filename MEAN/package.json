@@ -2,16 +2,20 @@
   "name": "personalsite",
   "version": "1.0.0",
   "description": "my personal site built with the MEAN stack",
-  "main": "app.js",
+  "main": "personalwebsite.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "fullpage.js": "^2.7.4"
+    "fullpage.js": "^2.7.4",
+		"animate.css": "^3.4.0",
+		"wow.js": "^1.1.2",
+		"body-parser": "^1.14.1",
+		"ejs": "^2.3.4",
+		"express": "^4.13.3"
   },
   "devDependencies": {
-    "motion-ui": "^1.1.0"
   }
 }
