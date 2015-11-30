@@ -1,14 +1,12 @@
-$(document).ready(function() {
-	
-	wow = new WOW(
-		{
-			boxClass:     'wow',      // default
-			animateClass: 'animated', // default
-			offset:       0,          // default
-			mobile:       false,      
-			live:         true        // default
-		}
-	)
+$(document).ready(function () {
+
+	wow = new WOW({
+		boxClass: 'wow', // default
+		animateClass: 'animated', // default
+		offset: 0, // default
+		mobile: false,
+		live: true // default
+	})
 	wow.init();
 
 	$('#fullpage').fullpage({
@@ -23,18 +21,13 @@ $(document).ready(function() {
 		responsiveWidth: 800,
 		afterResize: function () {
 			if ($(window).width() < 800) {
-				//$.fn.fullpage.setAllowScrolling(false);
-				//$.fn.fullpage.setKeyboardScrolling(false);
-				//$('#fullpage').fullpage({scrollOverflow:true});
 				var verticalNav = document.getElementById("fp-nav");
 				$(verticalNav).hide();
 			}
 		}
 	});
-	
-	if($(window).width() <= 719){
 
-			$(".wow").removeClass("wow");
-
+	if ($(window).width() <= 719) {
+		$(".wow").removeClass("wow");
 	}
 });
