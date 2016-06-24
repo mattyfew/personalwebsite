@@ -17,8 +17,10 @@ h2 {
 
 h1 {
   font-size: 36px;
-  letter-spacing: -1px;
-  line-height: 100%; }
+  letter-spacing: 0px;
+  line-height: 55px;
+  color: white;
+}
 
 h2 {
   font-size: 24px; }
@@ -28,6 +30,8 @@ p {
 
 a {
   color: #3e3e3e; }
+
+#portfolio-wrapper img:hover {opacity: 0.75}
 
 #nav-selector {
   background-color: white; }
@@ -215,7 +219,9 @@ ul {
   color: #3d3d3d;
   padding: 50px 0;
   height: 300px; }
-
+#first-section {
+    background-color: #678B91
+}
 .about {
   background: #184764;
   color: #fff; }
@@ -358,5 +364,21 @@ ul {
 .hvr-grow:active {
   -webkit-transform: scale(1.1);
   transform: scale(1.1); }
+
+
+
+/* Media Queries */
+
+@media screen and (min-width:992px) and (max-width:1199px){
+
+}
+@media screen and (min-width:768px) and (max-width:991px){
+
+}
+@media screen and (max-width:767px){
+
+}
+
+
 
 /*# sourceMappingURL=personalwebsite.css.map */

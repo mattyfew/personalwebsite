@@ -20,6 +20,7 @@
     "express": "^4.13.3",
     "fullpage.js": "^2.7.4",
     "hover.css": "^2.0.2",
+    "micromatch": "^2.3.10",
     "wow.js": "^1.1.2"
   },
   "devDependencies": {}

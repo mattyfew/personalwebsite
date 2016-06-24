@@ -10,7 +10,7 @@ var urlencodedBodyParser = bodyParser.urlencoded({
 //var db = new sqlite3.database('website.db');
 //var methodOverride = require('method-override');
 
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 2222); 
 
 app.use(urlencodedBodyParser);
 app.set('view_engine', 'ejs');
