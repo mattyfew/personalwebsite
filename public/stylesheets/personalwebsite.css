@@ -58,12 +58,9 @@ a {
   padding-top: 0; }
 
 #slide-1-wrapper {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin-left: 30px; }
+    position: relative;
+    margin-top: 100px;
+}
 
 #first-section-row {
   position: relative;
@@ -73,14 +70,8 @@ a {
   position: relative; }
 
 #main-picture {
-  max-height: 400px;
-  width: auto;
-  position: absolute;
-  top: 30px;
-  left: 0;
-  right: 0;
-  bottom: 0px;
-  margin: auto; }
+
+}
 
 #about-wrapper {
   border-left: 2em;
@@ -148,8 +139,7 @@ ul {
   max-height: 80px; }
 
 #social-icons-row {
-  left: 0;
-  right: 0; }
+  }
 
 #email-button {
   margin-top: 30px;
@@ -266,30 +256,6 @@ ul {
     -webkit-animation-delay: 18s; }
 
 @media screen and (max-width: 500px) {
-  #main-picture {
-    position: absolute;
-    top: 30px;
-    left: 0;
-    right: 0;
-    bottom: 0px;
-    margin: auto;
-    padding-top: 10px; }
-
-  #slide-1-wrapper {
-    position: absolute;
-    top: 0px;
-    bottom: 440px;
-    padding-bottom: 15px;
-    margin: auto;
-    min-height: 100px; }
-
-  #about-wrapper {
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-left: 15px; }
-
-  #skills-header {
-    padding-top: 40px; }
 
   .skills h3 {
     font-size: 3em;
@@ -302,12 +268,6 @@ ul {
     -o-animation: none !important;
     -ms-animation: none !important;
     animation: none !important; }
-
-  .fp-prev {
-    left: 10px !important; }
-
-  .fp-next {
-    right: 10px !important; }
 
   #contact-inner {
     padding: 0 5px 0 5px; }
@@ -322,21 +282,10 @@ ul {
     margin-left: 50%;
     right: 7px; }
 
-  .slide {
-    padding-left: 65px; }
-    .slide h1 {
-      font-size: .3em; }
-    .slide a {
-      font-size: 40px; }
-
   .social-icon {
     min-height: 50px;
     min-width: 50px; }
-
-  #social-icons-row {
-    margin-left: 0;
-    margin-right: 0;
-    text-align: center; } }
+ }
 @media screen and (max-width: 814px) {
   .inner {
     padding-left: 0;
@@ -369,15 +318,46 @@ ul {
 
 /* Media Queries */
 
-@media screen and (min-width:992px) and (max-width:1199px){
-
+@media screen and (max-width:1023px){
+    #first-section-row {text-align: center; margin-left: 0;}
+    #slide-1-wrapper {margin-top: 20px}
+    #slide-1-wrapper h1 {width: 100%;}
 }
-@media screen and (min-width:768px) and (max-width:991px){
-
+@media screen and (max-width:430px){
+    #slide-1-wrapper h1 {font-size: 26px}
+    .click-to-view {font-size: 35px !important;}
+    .skills h3 {font-size: 2em;}
+    .slide {padding-left: 55px;}
 }
-@media screen and (max-width:767px){
+@media screen and (max-width:799px){
+    .slide {
+      padding-left: 120px; }
+      .slide h1 {
+        font-size: .3em; }
+      .slide a {
+        font-size: 40px; }
 
+    .fp-prev {
+      left: 10px !important; }
+
+    .fp-next {
+      right: 10px !important; }
 }
+
+/* queries for slide section centering */
+@media screen and (max-width:700px) and (min-width:601px) {
+    .slide {padding-left: 99px}
+}
+@media screen and (max-width:600px) and (min-width:501px) {
+    .slide {padding-left: 87px}
+}
+@media screen and (max-width:500px) and (min-width:401px) {
+    .slide {padding-left: 66px}
+}
+@media screen and (max-width:400px) and (min-width:320px) {
+    .slide {padding-left: 53px}
+}
+.icon-top {margin-bottom: 20px}
 
 
 
